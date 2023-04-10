@@ -57,7 +57,7 @@ return {
     event = "VeryLazy",
     config = function()
       require("config.plugins.lualine")
-      vim.opt.laststatus = 2
+      -- vim.opt.laststatus = 2
     end
   },
 

@@ -34,5 +34,21 @@ return {
     config = function()
       require("config.plugins.gitsigns")
     end,
+  },
+
+  -- terminal
+  {
+    "akinsho/toggleterm.nvim",
+    cmd = "ToggleTerm",
+    keys = {
+      { "<M-=>", "<Cmd>ToggleTerm size=25<CR>" },
+    },
+    init = function ()
+      require("toggleterm").setup()
+    	vim.cmd [[
+      	tnoremap <M--> <C-\><C-n>:q<CR>
+        tnoremap <M-q> <C-\><C-n>
+    	]]
+    end
   }
 }
