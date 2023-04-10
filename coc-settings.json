@@ -1,0 +1,106 @@
+{
+  "clangd.enabled": true,
+  "clangd.arguments": [
+    "--background-index",
+    "-j=4",
+    "--clang-tidy",
+    "--all-scopes-completion",
+    "--completion-style=bundled",
+    "--header-insertion=never",
+    "--header-insertion-decorators",
+    "--pch-storage=memory",
+    "--enable-config",
+    "--log=verbose"
+  ],
+
+  "coc.source.word.filetypes": ["markdown"],
+
+  "colors.enable": true,
+
+  "explorer.icon.enableNerdfont": true,
+  "explorer.width": 30,
+  
+  "inlayHint.enable": false,
+  "inlayHint.parameterSeparator": " ",
+  "inlayHint.refreshOnInsertMode": true,
+  "inlayHint.subSeparator": ", ",
+  "inlayHint.typeSeparator": " ",
+
+  "languageserver": {
+    "sourcery":{
+      "command": "sourcery",
+      "args": [
+        "lsp"
+      ],
+      "filetypes": [
+        "python"
+      ],
+      "initializationOptions": {
+        "editor_version": "vim",
+        "extension_version": "coc.vim"
+      },
+      "settings": {
+        "sourcery": {
+          "metricsEnabled": true
+        }
+      }
+    },
+    "typst-lsp": {
+      "command": "typst-lsp",
+      "filetypes": [
+        "typst"
+      ]
+    }
+  },
+
+  "list.floatPreview": true,
+  "list.insertMappings": {
+    "<C-n>": "normal:j",
+    "<C-p>": "normal:k"
+  },
+
+  "Lua.diagnostics.globals": ["vim"],
+  "Lua.workspace.library": [
+    "/usr/share/nvim/runtime/lua",
+    "/usr/share/nvim/runtime/lua/vim",
+    "/usr/share/nvim/runtime/lua/vim/lsp"
+  ],
+
+  "marketplace.npmsio": true,
+
+  "rust-analyzer.enable": true,
+  "rust-analyzer.inlayHints.closureReturnTypeHints.enable": "with_block",
+  "rust-analyzer.inlayHints.lifetimeElisionHints.enable": "skip_trivial",
+  "rust-analyzer.inlayHints.maxLength": 25,
+  "rust-analyzer.inlayHints.reborrowHints.enable": "mutable",
+  "rust-analyzer.inlayHints.renderColons": false,
+
+  "suggest.completionItemKindLabels": {
+      "class": "\uf0e8",
+      "color": "\ue22b",
+      "constant": "\uf8fe",
+      "constructor": "\uf0ad",
+      "default": "\uf29c",
+      "enumMember": "\uf02b",
+      "enum": "\uf435",
+      "event": "\ufacd",
+      "field": "\uf9be",
+      "file": "\uf723",
+      "folder": "\uf114",
+      "function": "\u0192",
+      "interface": "\uf417",
+      "keyword": "\uf1de",
+      "method": "\uf09a",
+      "module": "\uf40d",
+      "operator": "\u03a8",
+      "property": "\ue624",
+      "reference": "\ufa46",
+      "snippet": "\ue60b",
+      "struct": "\ufb44",
+      "text": "\ue612",
+      "typeParameter": "\uf728",
+      "unit": "\uf475",
+      "value": "\uf89f",
+      "variable": "\ue79b",
+  },
+}
