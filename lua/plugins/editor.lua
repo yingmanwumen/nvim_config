@@ -43,7 +43,7 @@ return {
     keys = {
       { "<M-=>", "<Cmd>ToggleTerm size=25<CR>" },
     },
-    init = function ()
+    config = function ()
       require("toggleterm").setup()
     	vim.cmd [[
       	tnoremap <M--> <C-\><C-n>:q<CR>
