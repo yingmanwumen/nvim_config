@@ -33,6 +33,8 @@
   "inlayHint.subSeparator": ", ",
   "inlayHint.typeSeparator": " ",
 
+	"jedi.enable": true,
+
   "languageserver": {
     "sourcery":{
       "command": "sourcery",
@@ -74,6 +76,8 @@
   ],
 
   "marketplace.npmsio": true,
+
+	"pyright.enable": false,
 
   "rust-analyzer.enable": true,
   "rust-analyzer.inlayHints.closureReturnTypeHints.enable": "with_block",

@@ -6,20 +6,22 @@ function coc_notify(msg, level)
   vim.notify(msg, level, notify_opts)
 end
 
-local coc_diag_record = {}
+-- local coc_diag_record = {}
 
 function coc_diag_notify(msg, level)
-  local notify_opts = { title = "LSP Diagnostics", timeout = 500, on_close = reset_coc_diag_record }
+  local notify_opts = { title = "LSP Diagnostics", timeout = 500 }
+  -- local notify_opts = { title = "LSP Diagnostics", timeout = 500, on_close = reset_coc_diag_record }
+	-- Disable replace
   -- if coc_diag_record is not {} then add it to notify_opts to key called "replace"
-  if coc_diag_record ~= {} then
-    notify_opts["replace"] = coc_diag_record.id
-  end
+  -- if coc_diag_record ~= {} then
+  --   notify_opts["replace"] = coc_diag_record.id
+  -- end
   coc_diag_record = vim.notify(msg, level, notify_opts)
 end
 
-function reset_coc_diag_record(window)
-  coc_diag_record = {}
-end
+-- function reset_coc_diag_record(window)
+--   coc_diag_record = {}
+-- end
 
 EOF
 
