@@ -5,4 +5,6 @@ return {
 	-- everforest
   { "sainnhe/everforest" },
 
+	-- vscode
+	{ "Mofiqul/vscode.nvim" },
 }

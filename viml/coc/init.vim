@@ -19,6 +19,7 @@ let g:coc_global_extensions = [
   \ 'coc-ultisnips',
   \ 'coc-vimlsp',
   \ 'coc-word',
+	\ 'coc-yaml',
   \ ]
 
 let s:coc_config_path = "~/.config/nvim/viml/coc/"

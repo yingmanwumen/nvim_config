@@ -32,6 +32,12 @@ return {
 		build = "make",
 	},
 
+	-- Makes sure to always start telescope (and only telescope) from the project/root directory.
+	-- would be set up by telescope
+	{
+		"desdic/telescope-rooter.nvim",
+	},
+
 	-- jump to definition
 	{
 		"phaazon/hop.nvim",
@@ -69,5 +75,18 @@ return {
 				tnoremap <silent> <M-q> <C-\><C-n>
 				]]
 		end
-	}
+	},
+
+	-- tags support
+	{
+		"liuchengxu/vista.vim",
+		cmd = "Vista",
+		keys = {
+			{ "<M-f>v", "<Cmd>Vista finder coc<CR>" },
+			{ "<M-v>", "<Cmd>Vista!!<CR>" },
+		},
+		dependencies = {
+			"junegunn/fzf",  -- fzf
+		},
+	},
 }
