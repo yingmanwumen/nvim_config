@@ -18,7 +18,14 @@
   "colors.enable": true,
 
   "explorer.icon.enableNerdfont": true,
-  "explorer.width": 30,
+  "explorer.width": 35,
+	"explorer.icon.collapsed": "",
+	"explorer.icon.expanded": "",
+	"explorer.previewAction.onHover": "labeling",
+	"explorer.keyMappings.global": {
+		"[g": ["wait", "markPrev:git"],
+		"]g": ["wait", "markNext:git"],
+	},
   
   "inlayHint.enable": false,
   "inlayHint.parameterSeparator": " ",

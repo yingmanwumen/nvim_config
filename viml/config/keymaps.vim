@@ -1,13 +1,13 @@
 " Exit
-nnoremap Q :q<CR>
+nnoremap <silent> Q :q<CR>
 
 " Save
-nnoremap <M-s> :w<CR>
+nnoremap <silent> <M-s> :w<CR>
 
 nnoremap <M-w> <C-w>
 
 " Close buffer
-nnoremap <M-q> :bd %<CR>
+nnoremap <silent> <M-q> :bd %<CR>
 
 vnoremap < <gv
 vnoremap > >gv

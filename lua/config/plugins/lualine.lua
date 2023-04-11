@@ -9,4 +9,11 @@ require("lualine").setup({
     },
     extensions = { "lazy" }
   },
+	sections = {
+		lualine_c = {
+			"filename",
+			-- Display CocStatus in lualine
+			"g:coc_status"
+		}
+	}
 })

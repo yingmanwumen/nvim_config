@@ -6,19 +6,6 @@ function coc_notify(msg, level)
   vim.notify(msg, level, notify_opts)
 end
 
-function coc_status_notify(msg, level)
-  local notify_opts = { title = "LSP Status", timeout = 500, hide_from_history = true, on_close = reset_coc_status_record }
-  -- if coc_status_record is not {} then add it to notify_opts to key called "replace"
-  if coc_status_record ~= {} then
-    notify_opts["replace"] = coc_status_record.id
-  end
-  coc_status_record = vim.notify(msg, level, notify_opts)
-end
-
-function reset_coc_status_record(window)
-  coc_status_record = {}
-end
-
 local coc_diag_record = {}
 
 function coc_diag_notify(msg, level)
@@ -65,15 +52,8 @@ function! s:DiagnosticNotify() abort
   call v:lua.coc_diag_notify(l:msg, l:level)
 endfunction
 
-function! s:StatusNotify() abort
-  let l:status = get(g:, 'coc_status', '')
-  let l:level = 'info'
-  if empty(l:status) | return '' | endif
-  call v:lua.coc_status_notify(l:status, l:level)
-endfunction
-
-
 function! s:InitCoc() abort
+	" Override the default notification
   source ~/.config/nvim/viml/coc/notify-overload.vim
 endfunction
 
@@ -82,5 +62,4 @@ augroup CocGroup
   autocmd!
   autocmd User CocNvimInit call s:InitCoc()
   autocmd User CocDiagnosticChange call s:DiagnosticNotify()
-  autocmd User CocStatusChange call s:StatusNotify()
 augroup END

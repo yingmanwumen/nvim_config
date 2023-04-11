@@ -21,7 +21,7 @@ endfunction
 augroup filetype_group
   autocmd!
   autocmd FileType markdown call <SID>autosave()
-  autocmd FileType vim,markdown,json,xml,typescript,lua setlocal ts=2 | setlocal sw=2
+  autocmd FileType sh,vim,markdown,json,xml,typescript,lua setlocal ts=2 | setlocal sw=2
   autocmd FileType cpp,cmake,opencl setlocal ts=4 | setlocal sw=4
   autocmd FileType c,go setlocal ts=8 | setlocal sw=8 | setlocal noexpandtab
   autocmd FileType c,cpp,rust,python,opencl setlocal colorcolumn=81
