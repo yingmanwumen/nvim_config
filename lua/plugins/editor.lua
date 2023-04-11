@@ -17,12 +17,19 @@ return {
 	},
 
 	-- telescope cooprates with coc.nvim
+	-- would be set up by telescope
 	{
 		"fannheyward/telescope-coc.nvim",
-		cmd = "Telescope",
 		keys = {
 			{ "<M-f>c", "<Cmd>Telescope coc<CR>" },
-		}
+		},
+	},
+
+	-- fzf support for telescope
+	-- would be set up by telescope
+	{
+		"nvim-telescope/telescope-fzf-native.nvim",
+		build = "make",
 	},
 
 	-- jump to definition
