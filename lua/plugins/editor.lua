@@ -60,13 +60,13 @@ return {
 		"akinsho/toggleterm.nvim",
 		cmd = "ToggleTerm",
 		keys = {
-			{ "<M-=>", "<Cmd>ToggleTerm size=25<CR>" },
+			{ "<M-=>", "<Cmd>ToggleTerm size=25<CR>i<C-w>" },
 		},
 		config = function ()
 			require("toggleterm").setup()
 			vim.cmd [[
-				tnoremap <M--> <C-\><C-n>:q<CR>
-				tnoremap <M-q> <C-\><C-n>
+				tnoremap <silent> <M--> <C-\><C-n>:q<CR>
+				tnoremap <silent> <M-q> <C-\><C-n>
 				]]
 		end
 	}
