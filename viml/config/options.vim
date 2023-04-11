@@ -7,7 +7,6 @@ set autoindent
 set autoread
 set cindent
 set clipboard+=unnamedplus
-" set cmdheight=0
 set cursorline
 set encoding=utf-8
 set mouse=""

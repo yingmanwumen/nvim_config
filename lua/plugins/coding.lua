@@ -43,6 +43,12 @@ return {
     end
   },
 
+	-- go
+	{
+		"fatih/vim-go",
+		ft = "go",
+	},
+
   -- comment
   {
     "echasnovski/mini.comment",

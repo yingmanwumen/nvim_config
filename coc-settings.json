@@ -17,6 +17,11 @@
 
   "colors.enable": true,
 
+	"diagnostic.errorSign": " ",
+	"diagnostic.hintSign": " ",
+	"diagnostic.infoSign": " ",
+	"diagnostic.warningSign": " ",
+
   "explorer.icon.enableNerdfont": true,
   "explorer.width": 35,
 	"explorer.icon.collapsed": "",
