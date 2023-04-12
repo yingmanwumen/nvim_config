@@ -61,14 +61,13 @@ return {
     end,
   },
 
-  -- markdown preview
-  {
-    "iamcco/markdown-preview.nvim",
-    ft = "markdown",
-    build = "cd app && yarn install",
-    config = function()
-      vim.g.mkdp_auto_close = 0
-    end,
-  }
+	-- surround
+	{
+		"kylechui/nvim-surround",
+		event = "VeryLazy",
+		config = function ()
+			require("nvim-surround").setup()
+		end
+	},
 }
 
