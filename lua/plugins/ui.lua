@@ -109,6 +109,9 @@ return {
     },
     config = function ()
       require("config.plugins.noice")
-    end
+    end,
+		cond = function()
+			return not vim.g.neovide
+		end,
   }
 }

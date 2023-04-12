@@ -72,6 +72,7 @@
     "<C-n>": "normal:j",
     "<C-p>": "normal:k"
   },
+	"list.indicator": "❯ ",
 
   "Lua.diagnostics.globals": ["vim"],
   "Lua.workspace.library": [
