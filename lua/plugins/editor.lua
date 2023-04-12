@@ -52,13 +52,22 @@ return {
 		end
 	},
 
--- git sign support
-{
+	-- git sign support
+	{
 		"lewis6991/gitsigns.nvim",
 		event = { "BufReadPre", "BufNewFile" },
 		config = function()
 			require("config.plugins.gitsigns")
 		end,
+	},
+
+	-- git ignore support
+  {
+		"wintermute-cell/gitignore.nvim",
+		cmd = "Gitignore",
+		dependencies = {
+			"nvim-telescope/telescope.nvim"
+		}
 	},
 
 	-- terminal
@@ -90,12 +99,12 @@ return {
 		},
 		config = function ()
 			vim.cmd[[
-			  let g:vista_fold_toggle_icons = ["", ""]
+				let g:vista_fold_toggle_icons = ["", ""]
 				let g:vista_cursor_delay = 0
 				let g:vista_echo_cursor_strategy = "floating_win"
 				let g:vista_update_on_text_changed = 1
 				let g:vista_close_on_jump = 1
-			]]
+				]]
 		end
 	},
 }
