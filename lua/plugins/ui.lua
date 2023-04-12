@@ -1,12 +1,15 @@
 return {
-	-- dashboard
-  {
-    "mhinz/vim-startify",
-    event = "VimEnter",
-    init = function()
-      require("config.plugins.vim-startify")
+	-- dashboard: dashboard-nvim
+	{
+		"nvimdev/dashboard-nvim",
+		event = "VimEnter",
+		dependencies = {
+			"nvim-tree/nvim-web-devicons",
+		},
+    config = function()
+      require("config.plugins.dashboard")
     end,
-  },
+	},
 
   -- web icons
   { "nvim-tree/nvim-web-devicons" },

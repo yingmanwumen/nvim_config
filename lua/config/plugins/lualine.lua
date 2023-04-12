@@ -4,7 +4,7 @@ require("lualine").setup({
     disabled_filetypes = {
       statusline = {
         "lazy",
-        "startify",
+        "dashboard",
       },
     },
     extensions = { "lazy" }

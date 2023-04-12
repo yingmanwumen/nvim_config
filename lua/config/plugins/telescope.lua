@@ -15,6 +15,14 @@ telescope.setup({
 			}
 		}
 	},
+	pickers = {
+		command_history = {
+			theme = "dropdown"
+		},
+		commands = {
+			theme = "dropdown"
+		}
+	}
 })
 
 telescope.load_extension("coc")
