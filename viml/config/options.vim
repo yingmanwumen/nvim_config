@@ -1,8 +1,9 @@
 filetype plugin indent on
 
-let g:python3_host_prog = '/usr/bin/python3'
-let g:python2_host_prog = '/usr/bin/python2'
+" let g:python3_host_prog = '/usr/bin/python3'
+" let g:python2_host_prog = '/usr/bin/python2'
 
+set autochdir
 set autoindent
 set autoread
 set cindent

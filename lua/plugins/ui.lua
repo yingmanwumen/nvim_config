@@ -113,5 +113,14 @@ return {
     cond = function()
       return not vim.g.neovide
     end,
-  }
+  },
+
+  -- animate
+  {
+    "echasnovski/mini.animate",
+    event = "VeryLazy",
+    config = function()
+      require("mini.animate").setup()
+    end
+  },
 }
