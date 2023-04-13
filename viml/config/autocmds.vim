@@ -20,12 +20,12 @@ endfunction
 
 augroup filetype_group
   autocmd!
-  autocmd FileType markdown call <SID>autosave()
-  autocmd FileType sh,vim,markdown,json,xml,typescript,lua setlocal ts=2 | setlocal sw=2
-  autocmd FileType cpp,cmake,opencl setlocal ts=4 | setlocal sw=4
-  autocmd FileType c,go setlocal ts=8 | setlocal sw=8 | setlocal noexpandtab
-  autocmd FileType c,cpp,rust,python,opencl setlocal colorcolumn=81
   autocmd BufNewFile,BufRead *.cl setlocal filetype=opencl
+  autocmd FileType markdown call <SID>autosave()
+  autocmd FileType sh,vim,markdown,json,xml,typescript,lua setlocal ts=2 | setlocal sw=2 | setlocal expandtab
+  autocmd FileType cpp,cmake,opencl setlocal ts=4 | setlocal sw=4 | setlocal expandtab
+  autocmd FileType c,go setlocal ts=8 | setlocal sw=8 | setlocal noexpandtab
+  " TODO: Use tools to do formatting
   autocmd FileType cpp,opencl call <SID>enable_cpp_format()
   autocmd FileType c call <SID>enable_c_format()
 augroup END
@@ -49,7 +49,7 @@ function s:format_cpp()
           \'clang-format -i ' . bufname('%') .
           \' -style="{BasedOnStyle: ' . style .
           \', IndentWidth: ' . indent_width . '}"'
-		execute "e"
+    execute "e"
   endif
 endfunction
 
@@ -70,7 +70,7 @@ function s:format_c()
     execute "!".
           \'indent ' . style .
           \' ' . fname . ' -o ' . fname
-		execute "e"
+    execute "e"
   endif
 endfunction
 

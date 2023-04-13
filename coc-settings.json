@@ -17,20 +17,20 @@
 
   "colors.enable": true,
 
-	"diagnostic.errorSign": " ",
-	"diagnostic.hintSign": " ",
-	"diagnostic.infoSign": " ",
-	"diagnostic.warningSign": " ",
+  "diagnostic.errorSign": " ",
+  "diagnostic.hintSign": " ",
+  "diagnostic.infoSign": " ",
+  "diagnostic.warningSign": " ",
 
   "explorer.icon.enableNerdfont": true,
   "explorer.width": 35,
-	"explorer.icon.collapsed": "",
-	"explorer.icon.expanded": "",
-	"explorer.previewAction.onHover": "labeling",
-	"explorer.keyMappings.global": {
-		"[g": ["wait", "markPrev:git"],
-		"]g": ["wait", "markNext:git"],
-	},
+  "explorer.icon.collapsed": "",
+  "explorer.icon.expanded": "",
+  "explorer.previewAction.onHover": "labeling",
+  "explorer.keyMappings.global": {
+    "[g": ["wait", "markPrev:git"],
+    "]g": ["wait", "markNext:git"],
+  },
   
   "inlayHint.enable": false,
   "inlayHint.parameterSeparator": " ",
@@ -38,7 +38,7 @@
   "inlayHint.subSeparator": ", ",
   "inlayHint.typeSeparator": " ",
 
-	"jedi.enable": true,
+  "jedi.enable": true,
 
   "languageserver": {
     "sourcery":{
@@ -72,7 +72,7 @@
     "<C-n>": "normal:j",
     "<C-p>": "normal:k"
   },
-	"list.indicator": "❯ ",
+  "list.indicator": "❯ ",
 
   "Lua.diagnostics.globals": ["vim"],
   "Lua.workspace.library": [
@@ -83,7 +83,7 @@
 
   "marketplace.npmsio": true,
 
-	"pyright.enable": false,
+  "pyright.enable": false,
 
   "rust-analyzer.enable": true,
   "rust-analyzer.inlayHints.closureReturnTypeHints.enable": "with_block",

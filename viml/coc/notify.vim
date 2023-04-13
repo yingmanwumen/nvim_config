@@ -11,7 +11,7 @@ end
 function coc_diag_notify(msg, level)
   local notify_opts = { title = "LSP Diagnostics", timeout = 500 }
   -- local notify_opts = { title = "LSP Diagnostics", timeout = 500, on_close = reset_coc_diag_record }
-	-- Disable replace
+  -- Disable replace
   -- if coc_diag_record is not {} then add it to notify_opts to key called "replace"
   -- if coc_diag_record ~= {} then
   --   notify_opts["replace"] = coc_diag_record.id
@@ -55,7 +55,7 @@ function! s:DiagnosticNotify() abort
 endfunction
 
 function! s:InitCoc() abort
-	" Override the default notification
+  " Override the default notification
   source ~/.config/nvim/viml/coc/notify-overload.vim
 endfunction
 

@@ -1,31 +1,31 @@
 local telescope = require("telescope")
 
 telescope.setup({
-	defaults = {
-		dynamic_preview_title = true,
-		prompt_prefix = "❯ ",
-		selection_caret = "➤ ",
-	},
-	extensions = {
-		coc = {
-			prefer_locations = true,
-			theme = "dropdown"
-		},
-		rooter = {
-			patterns = {
-				".git",
-				"package.json"
-			}
-		}
-	},
-	pickers = {
-		command_history = {
-			theme = "dropdown"
-		},
-		commands = {
-			theme = "dropdown"
-		}
-	}
+  defaults = {
+    dynamic_preview_title = true,
+    prompt_prefix = "❯ ",
+    selection_caret = "➤ ",
+  },
+  extensions = {
+    coc = {
+      prefer_locations = true,
+      theme = "dropdown"
+    },
+    rooter = {
+      patterns = {
+        ".git",
+        "package.json"
+      }
+    }
+  },
+  pickers = {
+    command_history = {
+      theme = "dropdown"
+    },
+    commands = {
+      theme = "dropdown"
+    }
+  }
 })
 
 telescope.load_extension("coc")

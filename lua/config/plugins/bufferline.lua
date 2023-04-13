@@ -10,7 +10,7 @@ require("bufferline").setup({
       {
         filetype = "coc-explorer",
         text = "Coc Explorer",
-				highlight = "Directory",
+        highlight = "Directory",
         text_align = "left",
       }
     },

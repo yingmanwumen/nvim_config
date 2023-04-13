@@ -14,9 +14,9 @@ return {
   -- repeat
   { "tpope/vim-repeat", event = "VeryLazy" },
 
-	-- fzf
-	{
-		"junegunn/fzf",
-		cmd = "FZF",
-	},
+  -- fzf
+  {
+    "junegunn/fzf",
+    cmd = "FZF",
+  },
 }

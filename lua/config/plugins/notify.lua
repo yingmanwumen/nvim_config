@@ -1,7 +1,7 @@
 vim.notify = require("notify")
 vim.notify.setup({
-	render = "minimal",
-	top_down = false
+  render = "minimal",
+  top_down = false
 })
 
 -- LSP support is implemented in coc.nvim

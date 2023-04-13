@@ -43,11 +43,11 @@ return {
     end
   },
 
-	-- go
-	{
-		"fatih/vim-go",
-		ft = "go",
-	},
+  -- go
+  {
+    "fatih/vim-go",
+    ft = "go",
+  },
 
   -- comment
   {
@@ -61,13 +61,13 @@ return {
     end,
   },
 
-	-- surround
-	{
-		"kylechui/nvim-surround",
-		event = "VeryLazy",
-		config = function ()
-			require("nvim-surround").setup()
-		end
-	},
+  -- surround
+  {
+    "kylechui/nvim-surround",
+    event = "VeryLazy",
+    config = function ()
+      require("nvim-surround").setup()
+    end
+  },
 }
 

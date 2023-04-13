@@ -1,15 +1,15 @@
 return {
-	-- dashboard: dashboard-nvim
-	{
-		"nvimdev/dashboard-nvim",
-		event = "VimEnter",
-		dependencies = {
-			"nvim-tree/nvim-web-devicons",
-		},
+  -- dashboard: dashboard-nvim
+  {
+    "nvimdev/dashboard-nvim",
+    event = "VimEnter",
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
+    },
     config = function()
       require("config.plugins.dashboard")
     end,
-	},
+  },
 
   -- web icons
   { "nvim-tree/nvim-web-devicons" },
@@ -110,8 +110,8 @@ return {
     config = function ()
       require("config.plugins.noice")
     end,
-		cond = function()
-			return not vim.g.neovide
-		end,
+    cond = function()
+      return not vim.g.neovide
+    end,
   }
 }
