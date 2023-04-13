@@ -69,5 +69,13 @@ return {
       require("nvim-surround").setup()
     end
   },
+
+  -- align
+  {
+    "junegunn/vim-easy-align",
+    keys = {
+      { "<leader>a", "<Plug>(EasyAlign)", mode = { 'n', 'x' } },
+    }
+  },
 }
 
