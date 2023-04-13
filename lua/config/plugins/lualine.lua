@@ -15,7 +15,10 @@ require("lualine").setup({
         "dashboard",
       },
     },
-    extensions = { "lazy" }
+    extensions = { "lazy" },
+    refresh = {
+      statusline = 150,
+    }
   },
   sections = {
     lualine_c = {
