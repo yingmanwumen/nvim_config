@@ -1,5 +1,9 @@
-local function get_mode()
-	return require("noice").api.statusline.mode.get() or ""
+local function macro_recording()
+	local mode = require("noice").api.statusline.mode.get()
+	if mode then
+		return string.match(mode, "^recording @.*") or ""
+	end
+	return ""
 end
 
 require("lualine").setup({
@@ -16,7 +20,7 @@ require("lualine").setup({
 	sections = {
 		lualine_c = {
 			"filename",
-			get_mode,
+			macro_recording,
 			-- Display CocStatus in lualine
 			"g:coc_status"
 		}
