@@ -13,7 +13,8 @@ telescope.setup({
 		},
 		rooter = {
 			patterns = {
-				".git"
+				".git",
+				"package.json"
 			}
 		}
 	},

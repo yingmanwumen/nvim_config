@@ -7,12 +7,12 @@ exec "source " . s:cur_path . "/autocmds.vim"
 lua << EOF
 
 vim.api.nvim_create_autocmd("User", {
-  pattern = "VeryLazy",
-  callback = function()
-    vim.cmd[[
-      exec "source ~/.config/nvim/viml/config/keymaps.vim"
-    ]]
-  end,
+	pattern = "VeryLazy",
+	callback = function()
+		vim.cmd[[
+			exec "source ~/.config/nvim/viml/config/keymaps.vim"
+		]]
+	end,
 })
 
 EOF
