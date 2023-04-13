@@ -4,7 +4,18 @@ require("noice").setup({
 		command_palette = true,
 		bottom_search = true
   },
-  cmdline = {
-    -- view = "cmdline"
-  }
+	routes = {
+		-- disable `written` message
+		-- https://github.com/folke/noice.nvim/wiki/Configuration-Recipes#hide-written-messages
+		{
+			filter = {
+				event = "msg_show",
+				kind = "",
+				find = "written",
+			},
+			opts = {
+				skip = true
+			}
+		}
+	},
 })
