@@ -23,11 +23,11 @@ augroup filetype_group
   autocmd BufNewFile,BufRead *.cl setlocal filetype=opencl
   autocmd FileType markdown call <SID>autosave()
   autocmd FileType sh,vim,markdown,json,xml,typescript,lua setlocal ts=2 | setlocal sw=2 | setlocal expandtab
-  autocmd FileType cpp,cmake,opencl setlocal ts=4 | setlocal sw=4 | setlocal expandtab
-  autocmd FileType c,go setlocal ts=8 | setlocal sw=8 | setlocal noexpandtab
+  autocmd FileType cpp,cmake,opencl                        setlocal ts=4 | setlocal sw=4 | setlocal expandtab
+  autocmd FileType c,go                                    setlocal ts=8 | setlocal sw=8 | setlocal noexpandtab
   " TODO: Use tools to do formatting
   autocmd FileType cpp,opencl call <SID>enable_cpp_format()
-  autocmd FileType c call <SID>enable_c_format()
+  autocmd FileType c          call <SID>enable_c_format()
 augroup END
 
 """""""""""""""""""""
@@ -46,9 +46,9 @@ function s:format_cpp()
   let indent_width = 4
   if &filetype == 'cpp' || &filetype == 'opencl'
     execute "!" .
-          \'clang-format -i ' . bufname('%') .
-          \' -style="{BasedOnStyle: ' . style .
-          \', IndentWidth: ' . indent_width . '}"'
+      \'clang-format -i ' . bufname('%') .
+      \' -style="{BasedOnStyle: ' . style .
+      \', IndentWidth: ' . indent_width . '}"'
     execute "e"
   endif
 endfunction
@@ -68,8 +68,8 @@ function s:format_c()
   let fname = bufname('%')
   if &filetype == 'c'
     execute "!".
-          \'indent ' . style .
-          \' ' . fname . ' -o ' . fname
+      \'indent ' . style .
+      \' ' . fname . ' -o ' . fname
     execute "e"
   endif
 endfunction

@@ -46,8 +46,8 @@ return {
     "akinsho/bufferline.nvim",
     event = "VeryLazy",
     keys = {
-      { "<M-j>", "<Cmd>BufferLineCyclePrev<CR>" },
-      { "<M-k>", "<Cmd>BufferLineCycleNext<CR>" },
+      { "<M-j>", "<Cmd>BufferLineCyclePrev<CR>"    },
+      { "<M-k>", "<Cmd>BufferLineCycleNext<CR>"    },
       { "<M-1>", "<Cmd>BufferLineGoToBuffer 1<CR>" },
       { "<M-2>", "<Cmd>BufferLineGoToBuffer 2<CR>" },
       { "<M-3>", "<Cmd>BufferLineGoToBuffer 3<CR>" },

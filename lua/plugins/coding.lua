@@ -28,8 +28,8 @@ return {
     },
     config = function()
       vim.cmd[[
-      imap <M-c> <Cmd>call codeium#Clear()<CR>
-      imap <script><silent><nowait><expr> <C-CR> codeium#Accept()
+        imap <M-c> <Cmd>call codeium#Clear()<CR>
+        imap <script><silent><nowait><expr> <C-CR> codeium#Accept()
       ]]
     end
   },
