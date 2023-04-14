@@ -4,12 +4,14 @@ return {
     "nvim-telescope/telescope.nvim",
     cmd = "Telescope",
     keys = {
+      { "<C-k>",  "<Cmd>Telescope<CR>"                           },
       { "<M-f>b", "<Cmd>Telescope buffers<CR>"                   },
       { "<M-f>:", "<Cmd>Telescope command_history<CR>"           },
       { "<M-f>f", "<Cmd>Telescope find_files<CR>"                },
       { "<M-f>l", "<Cmd>Telescope current_buffer_fuzzy_find<CR>" },
       { "<M-f>m", "<Cmd>Telescope marks<CR>"                     },
       { "<M-f>r", "<Cmd>Telescope live_grep<CR>"                 },
+      { "<M-f>s", "<Cmd>Telescope spell_suggest<CR>"             },
     },
     config = function ()
       require("config.plugins.telescope")
@@ -21,8 +23,7 @@ return {
   {
     "fannheyward/telescope-coc.nvim",
     keys = {
-      { "<M-f>c", "<Cmd>Telescope coc<CR>"          },
-      { "<C-k>",  "<Cmd>Telescope coc commands<CR>" },
+      { "<M-f>c", "<Cmd>Telescope coc<CR>" },
     },
   },
 

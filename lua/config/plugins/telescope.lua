@@ -5,27 +5,37 @@ telescope.setup({
     dynamic_preview_title = true,
     prompt_prefix = "❯ ",
     selection_caret = "➤ ",
+    theme = "dropdown",
+    previewer = true,
+    sorting_strategy = "ascending",
   },
   extensions = {
     coc = {
       prefer_locations = true,
-      theme = "dropdown"
+      theme = "dropdown",
     },
     rooter = {
       patterns = {
         ".git",
-        "package.json"
+        "package.json",
       }
     }
   },
   pickers = {
     command_history = {
-      theme = "dropdown"
+      theme = "dropdown",
     },
     commands = {
-      theme = "dropdown"
-    }
-  }
+      theme = "dropdown",
+    },
+    spell_suggest = {
+      theme = "cursor",
+    },
+    builtin = {
+      theme = "dropdown",
+      previewer = false,
+    },
+  },
 })
 
 telescope.load_extension("coc")
