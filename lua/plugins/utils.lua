@@ -12,7 +12,12 @@ return {
   { "nvim-lua/plenary.nvim" },
 
   -- repeat
-  { "tpope/vim-repeat", event = "VeryLazy" },
+  { "tpope/vim-repeat",
+    event = {
+      "BufNewFile",
+      "BufReadPost"
+    },
+  },
 
   -- fzf
   {

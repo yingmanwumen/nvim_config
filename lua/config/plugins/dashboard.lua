@@ -51,6 +51,7 @@ require("dashboard").setup({
       limit = 20
     },
     footer = function ()
+      ---@diagnostic disable-next-line: different-requires
       local stats = require("lazy").stats()
       local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
       return { "", "Loaded " .. stats.count .. " plugins in " .. ms .. "ms 🕑" }

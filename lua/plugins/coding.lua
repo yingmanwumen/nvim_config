@@ -2,36 +2,26 @@ return {
   -- ultisnips
   {
     "SirVer/ultisnips",
-    event = {
-      "InsertEnter"
-    },
+    event = "InsertEnter",
     config = function()
-      vim.cmd[[
-        let g:UltiSnipsSnippetDirectories = ["UltiSnips", "snips"]
-      ]]
+      vim.g.UltiSnipsSnippetDirectories = { "UltiSnips", "snips", }
     end
   },
 
   -- snips
   {
     "honza/vim-snippets",
-    event = {
-      "InsertEnter",
-    },
+    event = "InsertEnter",
   },
 
   -- codeium
   {
     "Exafunction/codeium.vim",
-    event = {
-      "InsertEnter",
+    event = "InsertEnter",
+    keys = {
+      { "<M-c>", "<Cmd>call codeium#Clear()<CR>", mode = "i" },
+      { "<C-CR>", "codeium#Accept()", mode = "i", nowait = true, expr = true, silent = true, script =true}
     },
-    config = function()
-      vim.cmd[[
-        imap <M-c> <Cmd>call codeium#Clear()<CR>
-        imap <script><silent><nowait><expr> <C-CR> codeium#Accept()
-      ]]
-    end
   },
 
   -- rust
@@ -64,7 +54,10 @@ return {
   -- surround
   {
     "kylechui/nvim-surround",
-    event = "VeryLazy",
+    event = {
+      "BufReadPost",
+      "BufNewFile"
+    },
     config = function ()
       require("nvim-surround").setup()
     end

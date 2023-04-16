@@ -1,4 +1,5 @@
 local function macro_recording()
+  ---@diagnostic disable-next-line: different-requires
   local mode = require("noice").api.statusline.mode.get()
   if mode then
     return string.match(mode, "^recording @.*") or ""

@@ -93,7 +93,6 @@ return {
   -- notify
   {
     "rcarriga/nvim-notify",
-    event = "VeryLazy",
     config = function()
       require("config.plugins.notify")
     end,
@@ -120,7 +119,11 @@ return {
     "echasnovski/mini.animate",
     event = "VeryLazy",
     config = function()
-      require("mini.animate").setup()
+      require("mini.animate").setup({
+        cursor = {
+          enable = false
+        }
+      })
     end
   },
 }
