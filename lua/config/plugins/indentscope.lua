@@ -15,7 +15,8 @@ vim.api.nvim_create_autocmd("FileType", {
     "lazy",
     "mason",
     "coc-explorer",
-    "startify"
+    "startify",
+    "coctree"
   },
   callback = function()
     vim.b.miniindentscope_disable = true

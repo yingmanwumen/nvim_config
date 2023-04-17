@@ -93,6 +93,7 @@ return {
   {
     "liuchengxu/vista.vim",
     cmd = "Vista",
+    enabled = false,
     keys = {
       { "<M-f>v", "<Cmd>Vista finder coc<CR>" },
       { "<M-v>",  "<Cmd>Vista coc<CR>"        },

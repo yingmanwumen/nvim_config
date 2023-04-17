@@ -15,6 +15,9 @@
 
   "coc.source.word.filetypes": ["markdown"],
 
+  "codeLens.enable": true,
+  "codeLens.position": "eol",
+
   "colors.enable": true,
 
   "diagnostic.errorSign":   " ",
@@ -74,6 +77,9 @@
   },
   "list.indicator": "❯ ",
 
+  "links.highlight": true,
+  "links.tooltip": true,
+
   "Lua.diagnostics.globals": ["vim"],
   "Lua.workspace.library": [
     "/usr/share/nvim/runtime/lua",
@@ -83,6 +89,8 @@
 
   "marketplace.npmsio": true,
 
+  "outline.previewBorderRounded": true,
+
   "pyright.enable": false,
 
   "rust-analyzer.enable": true,
@@ -91,6 +99,11 @@
   "rust-analyzer.inlayHints.reborrowHints.enable": "mutable",
   "rust-analyzer.inlayHints.closureReturnTypeHints.enable": "with_block",
   "rust-analyzer.inlayHints.lifetimeElisionHints.enable": "skip_trivial",
+  "rust-analyzer.lens.debug.enable":                  false,
+  "rust-analyzer.lens.references.adt.enable":         true,
+  "rust-analyzer.lens.references.trait.enable":       true,
+  "rust-analyzer.lens.references.method.enable":      true,
+  "rust-analyzer.lens.references.enumVariant.enable": true,
 
   "suggest.completionItemKindLabels": {
     "class":         "\uf0e8",
@@ -120,4 +133,8 @@
     "value":         "\uf89f",
     "variable":      "\ue79b",
   },
+
+  "tree.openedIcon": "",
+  "tree.closedIcon": "",
+  "tree.key.toggle": "o"
 }
