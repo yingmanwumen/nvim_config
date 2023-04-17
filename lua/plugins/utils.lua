@@ -23,5 +23,6 @@ return {
   {
     "junegunn/fzf",
     cmd = "FZF",
+    enabled = false
   },
 }

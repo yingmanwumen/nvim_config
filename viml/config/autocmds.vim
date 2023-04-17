@@ -21,6 +21,7 @@ endfunction
 augroup filetype_group
   autocmd!
   autocmd BufNewFile,BufRead *.cl setlocal filetype=opencl
+  autocmd BufNewFile,BufRead *.typ setlocal filetype=typst
   autocmd FileType markdown call <SID>autosave()
   autocmd FileType sh,vim,markdown,json,xml,typescript,lua setlocal ts=2 | setlocal sw=2 | setlocal expandtab
   autocmd FileType cpp,cmake,opencl                        setlocal ts=4 | setlocal sw=4 | setlocal expandtab

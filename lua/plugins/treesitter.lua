@@ -15,7 +15,7 @@ return {
     },
     config = function()
       require("config.plugins.treesitter")
-    end
+    end,
   },
 
   -- rainbow

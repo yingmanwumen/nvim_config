@@ -89,29 +89,6 @@ return {
     end
   },
 
-  -- tags support
-  {
-    "liuchengxu/vista.vim",
-    cmd = "Vista",
-    enabled = false,
-    keys = {
-      { "<M-f>v", "<Cmd>Vista finder coc<CR>" },
-      { "<M-v>",  "<Cmd>Vista coc<CR>"        },
-    },
-    dependencies = {
-      "junegunn/fzf",  -- fzf
-    },
-    config = function ()
-      vim.cmd[[
-        let g:vista_fold_toggle_icons      = ["", ""]
-        let g:vista_cursor_delay           = 0
-        let g:vista_echo_cursor_strategy   = "floating_win"
-        let g:vista_update_on_text_changed = 1
-        let g:vista_close_on_jump          = 1
-        ]]
-    end
-  },
-
   -- markdown preview
   {
     "iamcco/markdown-preview.nvim",
