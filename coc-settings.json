@@ -20,7 +20,7 @@
 
   "colors.enable": true,
 
-  "diagnostic.errorSign":   " ",
+  "diagnostic.errorSign":   "⬤ ",
   "diagnostic.hintSign":    " ",
   "diagnostic.infoSign":    " ",
   "diagnostic.warningSign": " ",
