@@ -21,6 +21,7 @@ vim.g.coc_global_extensions = {
   'coc-tabnine',
   'coc-toml',
   'coc-ultisnips',
+  'coc-vetur',
   'coc-vimlsp',
   'coc-word',
   'coc-yaml',
