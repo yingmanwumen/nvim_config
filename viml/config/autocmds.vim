@@ -23,7 +23,7 @@ augroup filetype_group
   autocmd BufNewFile,BufRead *.cl setlocal filetype=opencl
   autocmd BufNewFile,BufRead *.typ setlocal filetype=typst
   autocmd FileType markdown call <SID>autosave()
-  autocmd FileType sh,vim,markdown,json,xml,typescript,lua setlocal ts=2 | setlocal sw=2 | setlocal expandtab
+  autocmd FileType typst,vue,sh,vim,markdown,json,xml,typescript,lua setlocal ts=2 | setlocal sw=2 | setlocal expandtab
   autocmd FileType cpp,cmake,opencl                        setlocal ts=4 | setlocal sw=4 | setlocal expandtab
   autocmd FileType c,go                                    setlocal ts=8 | setlocal sw=8 | setlocal noexpandtab
   " TODO: Use tools to do formatting

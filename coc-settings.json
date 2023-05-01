@@ -14,6 +14,7 @@
   ],
 
   "coc.source.word.filetypes": ["markdown"],
+  "coc.source.tag.filetypes": ["html", "vue", "xml", "markdown"],
 
   "codeLens.enable": true,
   "codeLens.position": "eol",
@@ -136,5 +137,7 @@
 
   "tree.openedIcon": "",
   "tree.closedIcon": "",
-  "tree.key.toggle": "o"
+  "tree.key.toggle": "o",
+  
+  "vetur.experimental.templateInterpolationService": true
 }
