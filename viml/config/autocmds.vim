@@ -11,35 +11,37 @@ augroup END
 "  Enable Auto Save  "
 """"""""""""""""""""""
 function s:autosave()
-  augroup auto_save
-    autocmd!
+  augroup my_group
     autocmd InsertLeave <buffer> silent write
     autocmd TextChanged <buffer> silent write
   augroup END
 endfunction
 
-augroup filetype_group
-  autocmd!
-  autocmd BufNewFile,BufRead *.cl setlocal filetype=opencl
-  autocmd BufNewFile,BufRead *.typ setlocal filetype=typst
-  autocmd FileType markdown call <SID>autosave()
-  autocmd FileType typst,vue,sh,vim,markdown,json,xml,typescript,lua setlocal ts=2 | setlocal sw=2 | setlocal expandtab
-  autocmd FileType cpp,cmake,opencl                        setlocal ts=4 | setlocal sw=4 | setlocal expandtab
-  autocmd FileType c,go                                    setlocal ts=8 | setlocal sw=8 | setlocal noexpandtab
-  " TODO: Use tools to do formatting
-  autocmd FileType cpp,opencl call <SID>enable_cpp_format()
-  autocmd FileType c          call <SID>enable_c_format()
-augroup END
-
-"""""""""""""""""""""
-"  Format Cpp Code  "
-"""""""""""""""""""""
-function s:enable_cpp_format()
-  augroup auto_format
-    autocmd!
-    autocmd BufWritePost * silent call <SID>format_cpp()
-  augroup END
+function s:set_indent_width(width, is_expand)
+  execute 'setlocal tabstop=' . a:width
+  execute 'setlocal shiftwidth=' . a:width
+  " setlocal tabstop=a:width
+  " setlocal shiftwidth=a:width
+  if a:is_expand
+		setlocal expandtab
+	else
+		setlocal noexpandtab
+	endif
 endfunction
+
+augroup my_group
+  autocmd!
+  autocmd BufNewFile,BufRead *.cl  setlocal filetype=opencl
+  autocmd BufNewFile,BufRead *.typ setlocal filetype=typst
+
+  autocmd FileType markdown call <SID>autosave()
+
+  autocmd FileType cpp,cmake,opencl call <SID>set_indent_width(4, v:true)
+  autocmd FileType c,go             call <SID>set_indent_width(8, v:false)
+
+  autocmd FileType cpp,opencl autocmd BufWritePost * silent call <SID>format_cpp()
+  autocmd FileType c          autocmd BufWritePost * silent call <SID>format_c()
+augroup END
 
 function s:format_cpp()
   " LLVM|Google|Chromium|Microsoft|Mozilla|WebKit
@@ -52,16 +54,6 @@ function s:format_cpp()
       \', IndentWidth: ' . indent_width . '}"'
     execute "e"
   endif
-endfunction
-
-"""""""""""""""""""
-"  Format C Code  "
-"""""""""""""""""""
-function s:enable_c_format()
-  augroup auto_format
-    autocmd!
-    autocmd BufWritePost * silent call <SID>format_c()
-  augroup END
 endfunction
 
 function s:format_c()

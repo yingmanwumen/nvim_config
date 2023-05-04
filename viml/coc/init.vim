@@ -8,7 +8,6 @@ vim.g.coc_global_extensions = {
   'coc-explorer',
   'coc-go',
   'coc-highlight',
-  'coc-jedi',
   'coc-json',
   'coc-ltex',
   'coc-lua',

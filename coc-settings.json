@@ -17,7 +17,7 @@
   "coc.source.tag.filetypes": ["html", "vue", "xml", "markdown"],
 
   "codeLens.enable": true,
-  "codeLens.position": "eol",
+  "codeLens.position": "top",
 
   "colors.enable": true,
 
@@ -41,8 +41,6 @@
   "inlayHint.refreshOnInsertMode": true,
   "inlayHint.subSeparator": ", ",
   "inlayHint.typeSeparator": " ",
-
-  "jedi.enable": true,
 
   "languageserver": {
     "sourcery":{
@@ -82,6 +80,7 @@
   "links.tooltip": true,
 
   "Lua.diagnostics.globals": ["vim"],
+  "Lua.codeLens.enable": true,
   "Lua.workspace.library": [
     "/usr/share/nvim/runtime/lua",
     "/usr/share/nvim/runtime/lua/vim",
@@ -92,7 +91,7 @@
 
   "outline.previewBorderRounded": true,
 
-  "pyright.enable": false,
+  "pyright.enable": true,
 
   "rust-analyzer.enable": true,
   "rust-analyzer.inlayHints.maxLength": 25,
@@ -139,5 +138,7 @@
   "tree.closedIcon": "",
   "tree.key.toggle": "o",
   
-  "vetur.experimental.templateInterpolationService": true
+  "vetur.experimental.templateInterpolationService": true,
+
+  "suggest.virtualText": false,
 }

@@ -1,8 +1,5 @@
 filetype plugin indent on
 
-" let g:python3_host_prog = '/usr/bin/python3'
-" let g:python2_host_prog = '/usr/bin/python2'
-
 set autoindent
 set autoread
 set cindent
@@ -22,3 +19,7 @@ set undodir=$HOME/.config/nvim/.undodir
 set undofile
 set updatetime=100
 set wrap
+
+set tabstop=2
+set shiftwidth=2
+set expandtab
