@@ -12,7 +12,6 @@ return {
       { "<M-f>l", "<Cmd>Telescope current_buffer_fuzzy_find<CR>" },
       { "<M-f>m", "<Cmd>Telescope marks<CR>"                     },
       { "<M-f>r", "<Cmd>Telescope live_grep<CR>"                 },
-      { "<M-f>s", "<Cmd>Telescope spell_suggest<CR>"             },
     },
     config = function ()
       require("config.plugins.telescope")

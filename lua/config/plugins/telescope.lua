@@ -5,9 +5,15 @@ telescope.setup({
     dynamic_preview_title = true,
     prompt_prefix = "❯ ",
     selection_caret = "➤ ",
-    theme = "dropdown",
-    previewer = true,
+    preview = false,
     sorting_strategy = "ascending",
+    layout_strategy = "center",
+    layout_config = {
+      center = {
+        anchor = "N",
+        -- height = 0.8,
+      }
+    }
   },
   extensions = {
     coc = {
@@ -34,6 +40,24 @@ telescope.setup({
     builtin = {
       theme = "dropdown",
       previewer = false,
+    },
+    current_buffer_fuzzy_find = {
+      theme = "dropdown",
+    },
+    buffers = {
+      theme = "dropdown",
+    },
+    find_files = {
+      theme = "dropdown",
+    },
+    oldfiles = {
+      theme = "dropdown",
+    },
+    marks = {
+      theme = "dropdown",
+    },
+    live_grep = {
+      theme = "dropdown",
     },
   },
 })
