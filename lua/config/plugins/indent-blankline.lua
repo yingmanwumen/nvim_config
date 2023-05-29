@@ -6,6 +6,7 @@ require("indent_blankline").setup {
     "neo-tree",
     "Trouble",
     "lazy",
+    "coc-explorer"
   },
   show_trailing_blankline_indent = false,
   show_current_context = false,

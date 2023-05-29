@@ -22,7 +22,6 @@ return {
     "lukas-reineke/indent-blankline.nvim",
     event = {
       "BufReadPost",
-      "BufNewFile",
     },
     config = function()
       require("config.plugins.indent-blankline")
@@ -34,7 +33,6 @@ return {
     "echasnovski/mini.indentscope",
     event = {
       "BufReadPost",
-      "BufNewFile",
     },
     config = function()
       require("config.plugins.indentscope")
