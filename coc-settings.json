@@ -21,9 +21,9 @@
 
   "colors.enable": true,
 
-  "diagnostic.errorSign":   "🔴",
-  "diagnostic.hintSign":    "❗",
-  "diagnostic.infoSign":    "💡",
+  "diagnostic.errorSign":   "⬤ ",
+  "diagnostic.hintSign":    "💡",
+  "diagnostic.infoSign":    "🛈 ",
   "diagnostic.warningSign": "⚠️",
 
   "explorer.icon.enableNerdfont": true,
@@ -84,7 +84,7 @@
   "Lua.workspace.library": [
     "/usr/share/nvim/runtime/lua",
     "/usr/share/nvim/runtime/lua/vim",
-    "/usr/share/nvim/runtime/lua/vim/lsp"
+    "/usr/share/nvim/runtime/lua/vim/lsp",
   ],
 
   "marketplace.npmsio": true,
@@ -140,5 +140,5 @@
   
   "vetur.experimental.templateInterpolationService": true,
 
-  "suggest.virtualText": false,
+  "suggest.virtualText": false
 }

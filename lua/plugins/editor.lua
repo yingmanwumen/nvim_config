@@ -43,6 +43,7 @@ return {
   -- jump to definition
   {
     "phaazon/hop.nvim",
+    pin = true,
     keys = {
       { "<leader><leader>j", "<Cmd>HopLineAC<CR>" },
       { "<leader><leader>k", "<Cmd>HopLineBC<CR>" },

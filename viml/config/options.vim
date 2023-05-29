@@ -8,7 +8,7 @@ set cursorline
 set encoding=utf-8
 set laststatus=3
 set list
-set listchars=tab:-->,trail:.
+set listchars=tab:<-,trail:.
 set mouse=""
 set nu
 set scrolloff=3

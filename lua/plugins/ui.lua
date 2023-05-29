@@ -124,6 +124,7 @@ return {
           enable = false
         }
       })
-    end
+    end,
+    enabled = false
   },
 }
