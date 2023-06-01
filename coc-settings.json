@@ -17,7 +17,7 @@
   "coc.source.tag.filetypes": ["html", "vue", "xml", "markdown"],
 
   "codeLens.enable": true,
-  "codeLens.position": "top",
+  "codeLens.position": "right_align",
 
   "colors.enable": true,
 
@@ -55,11 +55,11 @@
     "]g": ["wait", "markNext:git"],
   },
   
-  "inlayHint.enable": false,
-  "inlayHint.parameterSeparator": " ",
+  "inlayHint.enable": true,
+  "inlayHint.parameterSeparator": " ",
   "inlayHint.refreshOnInsertMode": true,
   "inlayHint.subSeparator": ", ",
-  "inlayHint.typeSeparator": " ",
+  "inlayHint.typeSeparator": " ",
 
   "languageserver": {
     "sourcery":{
@@ -118,7 +118,9 @@
   "rust-analyzer.inlayHints.reborrowHints.enable": "mutable",
   "rust-analyzer.inlayHints.closureReturnTypeHints.enable": "with_block",
   "rust-analyzer.inlayHints.lifetimeElisionHints.enable": "skip_trivial",
-  "rust-analyzer.lens.debug.enable":                  false,
+  "rust-analyzer.lens.debug.enable":                  true,
+  "rust-analyzer.lens.run.enable":                    true,
+  "rust-analyzer.lens.implementations.enable":        true,
   "rust-analyzer.lens.references.adt.enable":         true,
   "rust-analyzer.lens.references.trait.enable":       true,
   "rust-analyzer.lens.references.method.enable":      true,
@@ -160,7 +162,6 @@
     "kind",
   ],
   "suggest.removeDuplicateItems": true,
-  "suggest.reversePumAboveCursor": true,
 
   "coc.source.ultisnips.shortcut": "S",
 
@@ -168,5 +169,5 @@
   "tree.closedIcon": "",
   "tree.key.toggle": "o",
   
-  "vetur.experimental.templateInterpolationService": true
+  "vetur.experimental.templateInterpolationService": true,
 }

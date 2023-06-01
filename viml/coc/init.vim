@@ -1,6 +1,7 @@
 lua << EOF
 
 vim.g.coc_global_extensions = {
+  'coc-bibtex',
   'coc-clangd',
   'coc-cmake',
   'coc-dictionary',
@@ -24,6 +25,7 @@ vim.g.coc_global_extensions = {
   'coc-ultisnips',
   'coc-vetur',
   'coc-vimlsp',
+  'coc-vimtex',
   'coc-word',
   'coc-yaml',
 }

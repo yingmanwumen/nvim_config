@@ -99,4 +99,12 @@ return {
     end,
   },
 
+  -- latex support
+  {
+    "lervag/vimtex",
+    ft = {"tex", "latex", "plaintex"},
+    config = function()
+      require("config.plugins.vimtex")
+    end,
+  },
 }

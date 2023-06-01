@@ -34,7 +34,7 @@ augroup my_group
   autocmd BufNewFile,BufRead *.cl  setlocal filetype=opencl
   autocmd BufNewFile,BufRead *.typ setlocal filetype=typst
 
-  autocmd FileType markdown call <SID>autosave()
+  autocmd FileType latex,plaintex,tex,markdown call <SID>autosave()
 
   autocmd FileType cpp,cmake,opencl call <SID>set_indent_width(4, v:true)
   autocmd FileType c,go             call <SID>set_indent_width(8, v:false)
