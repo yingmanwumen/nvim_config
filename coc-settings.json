@@ -54,12 +54,16 @@
     "[g": ["wait", "markPrev:git"],
     "]g": ["wait", "markNext:git"],
   },
-  
+
   "inlayHint.enable": true,
   "inlayHint.parameterSeparator": " ",
   "inlayHint.refreshOnInsertMode": true,
   "inlayHint.subSeparator": ", ",
   "inlayHint.typeSeparator": " ",
+
+  "java.referencesCodeLens.enabled": true,
+  "java.implementationsCodeLens.enabled": true,
+  "java.inlayHints.parameterNames.enabled": "all",
 
   "languageserver": {
     "sourcery":{
