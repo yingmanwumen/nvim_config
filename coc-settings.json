@@ -163,7 +163,7 @@
   ],
   "suggest.removeDuplicateItems": true,
 
-  "coc.source.ultisnips.shortcut": "S",
+  "tabnine.limit": 3,
 
   "tree.openedIcon": "",
   "tree.closedIcon": "",
