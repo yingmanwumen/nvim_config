@@ -29,6 +29,7 @@ vim.g.coc_global_extensions = {
   'coc-vimtex',
   'coc-word',
   'coc-yaml',
+  'coc-yank',
 }
 
 EOF

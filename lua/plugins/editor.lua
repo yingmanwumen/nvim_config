@@ -128,4 +128,26 @@ return {
       "LBSubmit",
     },
   },
+
+  -- better quickfix
+  {
+    "kevinhwang91/nvim-bqf",
+    ft = 'qf'
+  },
+
+  -- telescope integration for session
+  {
+    "RutaTang/spectacle.nvim",
+    config = function()
+      require("spectacle").setup({})
+    end,
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim"
+    },
+    keys = {
+      { "<leader>sl", "<Cmd>lua require('spectacle').SpectacleTelescope()<CR>" },
+      { "<leader>ss", "<Cmd>lua require('spectacle').SpectacleSaveAs()<CR>"    },
+    }
+  },
 }

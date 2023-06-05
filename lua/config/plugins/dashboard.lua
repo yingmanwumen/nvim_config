@@ -1,9 +1,9 @@
 require("dashboard").setup({
   theme = "hyper",
   disable_move = true,
+  shortcut_type = "number",
   buffer_name = "Dashboard",
   config = {
-    -- header = logo,
     week_header = {
       enable = true,
     },
