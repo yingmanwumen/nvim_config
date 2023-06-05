@@ -107,4 +107,25 @@ return {
       require("config.plugins.vimtex")
     end,
   },
+
+  -- leetcode support
+  {
+    "Dhanus3133/LeetBuddy.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim",
+    },
+    config = function()
+      require("leetbuddy").setup({
+        language = "cpp",
+      })
+    end,
+    cmd = {
+      "LBQuestions",
+      "LBQuestion",
+      "LBReset",
+      "LBTest",
+      "LBSubmit",
+    },
+  },
 }
