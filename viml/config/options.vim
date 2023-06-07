@@ -1,4 +1,6 @@
 filetype plugin indent on
+syntax on
+syntax sync minlines=256
 
 set autoindent
 set autoread
@@ -23,3 +25,7 @@ set wrap
 set tabstop=2
 set shiftwidth=2
 set expandtab
+
+let g:loaded_ruby_provider = 0
+let g:loaded_perl_provider = 0
+

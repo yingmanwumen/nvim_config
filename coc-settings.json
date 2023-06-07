@@ -52,7 +52,7 @@
   "explorer.previewAction.onHover": "labeling",
   "explorer.keyMappings.global": {
     "[g": ["wait", "markPrev:git"],
-    "]g": ["wait", "markNext:git"],
+    "]g": ["wait", "markNext:git"]
   },
 
   "inlayHint.enable": true,
@@ -107,7 +107,7 @@
   "Lua.workspace.library": [
     "/usr/share/nvim/runtime/lua",
     "/usr/share/nvim/runtime/lua/vim",
-    "/usr/share/nvim/runtime/lua/vim/lsp",
+    "/usr/share/nvim/runtime/lua/vim/lsp"
   ],
 
   "marketplace.npmsio": true,
@@ -156,14 +156,14 @@
     "typeParameter": " ",
     "unit":          " ",
     "value":         " ",
-    "variable":      " ",
+    "variable":      " "
   },
   "suggest.virtualText": false,
   "suggest.selection": "recentlyUsedByPrefix",
   "suggest.formatItems": [
     "abbr",
     "menu",
-    "kind",
+    "kind"
   ],
   "suggest.removeDuplicateItems": true,
 
@@ -174,4 +174,6 @@
   "tree.key.toggle": "o",
   
   "vetur.experimental.templateInterpolationService": true,
+
+  "yank.highlight.enable": false
 }

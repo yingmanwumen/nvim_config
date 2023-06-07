@@ -1,4 +1,4 @@
 set bg=dark
 set termguicolors
 
-colorscheme vscode
+colorscheme tokyonight
