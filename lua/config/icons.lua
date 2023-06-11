@@ -35,5 +35,11 @@ return {
     Unit = " ",
     Value = " ",
     Variable = " ",
-  }
+  },
+  Dianostics = {
+    Error = " ",
+    Warn = " ",
+    Hint = " ",
+    Info = " ",
+  },
 }

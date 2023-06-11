@@ -100,3 +100,9 @@ for server, options in pairs(servers) do
     settings = options.settings,
   })
 end
+
+local signs = require("config.icons").Dianostics
+for type, icon in pairs(signs) do
+  local hl = "DiagnosticSign" .. type
+  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+end

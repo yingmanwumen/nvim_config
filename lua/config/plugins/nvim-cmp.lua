@@ -19,10 +19,12 @@ cmp.setup({
   }),
   sources = cmp.config.sources({
     { name = "nvim_lsp" },
+    { name = "nvim_lua" },
     { name = "luasnip" },
     { name = "buffer" },
     { name = "path" },
     { name = "cmp_tabnine" },
+    { name = "git" },
   }),
   formatting = {
     format = function(_, item)

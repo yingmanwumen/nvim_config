@@ -124,5 +124,5 @@ return {
       "BufNewFile"
     },
     config = true
-  }
+  },
 }

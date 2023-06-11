@@ -23,7 +23,7 @@ function s:set_indent_width(width, is_expand)
   endif
 endfunction
 
-augroup my_group
+augroup MyAutoCmd
   autocmd!
   autocmd BufNewFile,BufRead *.cl  setlocal filetype=opencl
   autocmd BufNewFile,BufRead *.typ setlocal filetype=typst

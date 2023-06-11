@@ -3,9 +3,11 @@ return {
     "hrsh7th/nvim-cmp",
     event = "InsertEnter",
     dependencies = {
-      "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-buffer",
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-nvim-lua",
       "hrsh7th/cmp-path",
+      "petertriho/cmp-git",
       "saadparwaiz1/cmp_luasnip",
       "tzachar/cmp-tabnine",
     },
@@ -17,6 +19,8 @@ return {
   { "hrsh7th/cmp-nvim-lsp" },
   { "hrsh7th/cmp-buffer" },
   { "hrsh7th/cmp-path" },
+  { "hrsh7th/cmp-nvim-lua" },
+  { "petertriho/cmp-git" },
   { "saadparwaiz1/cmp_luasnip" },
 
   {
@@ -195,4 +199,9 @@ return {
       require("project_nvim").setup()
     end,
   },
+
+  {
+    "mg979/docgen.vim",
+    cmd = "DocGen",
+  }
 }

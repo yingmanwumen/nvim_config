@@ -9,6 +9,8 @@ return {
       "hrsh7th/cmp-nvim-lsp",
       "williamboman/mason-lspconfig.nvim",
       "lvimuser/lsp-inlayhints.nvim",
+      "kosayoda/nvim-lightbulb",
+      "ray-x/lsp_signature.nvim",
     },
     config = function()
       require("config.plugins.nvim-lspconfig")
@@ -23,6 +25,24 @@ return {
     config = true,
   },
 
+  {
+    "kosayoda/nvim-lightbulb",
+    dependencies = "antoinemadec/FixCursorHold.nvim",
+    config = function()
+      require("nvim-lightbulb").setup({
+        autocmd = {
+          enabled = true,
+        }
+      })
+    end
+  },
+
   { "lvimuser/lsp-inlayhints.nvim" },
-  { "p00f/clangd_extensions.nvim" }
+  { "p00f/clangd_extensions.nvim" },
+  { "antoinemadec/FixCursorHold.nvim" },
+
+  {
+    "ray-x/lsp_signature.nvim",
+    config = true,
+  }
 }
