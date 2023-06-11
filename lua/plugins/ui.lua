@@ -61,22 +61,6 @@ return {
     end,
   },
 
-  -- TODO
-  -- PERF
-  -- HACK
-  -- NOTE
-  -- FIX
-  -- WARNING
-  {
-    "folke/todo-comments.nvim",
-    event = {
-      "BufReadPost",
-      "BufNewFile",
-    },
-    dependencies = "nvim-lua/plenary.nvim",
-    opts = {}
-  },
-
   {
     "echasnovski/mini.indentscope",
     event = {
@@ -116,5 +100,29 @@ return {
     config = function()
       require("config.plugins.dashboard")
     end
+  },
+
+  {
+    "junegunn/rainbow_parentheses.vim",
+    event = {
+      "BufReadPost",
+      "BufNewFile",
+    },
+    config = function()
+      vim.cmd [[
+        let g:rainbow#pairs = [ ['(', ')'], ['[', ']'], ['{', '}'], ['<', '>'] ]
+        RainbowParentheses
+      ]]
+    end
+  },
+
+  {
+    "folke/todo-comments.nvim",
+    dependencies = "nvim-lua/plenary.nvim",
+    event = {
+      "BufReadPost",
+      "BufNewFile"
+    },
+    config = true
   }
 }

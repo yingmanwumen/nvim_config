@@ -7,15 +7,16 @@ return {
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-path",
       "saadparwaiz1/cmp_luasnip",
+      "tzachar/cmp-tabnine",
     },
     config = function()
       require("config.plugins.nvim-cmp")
     end
   },
 
-  { "hrsh7th/cmp-nvim-lsp"     },
-  { "hrsh7th/cmp-buffer"       },
-  { "hrsh7th/cmp-path"         },
+  { "hrsh7th/cmp-nvim-lsp" },
+  { "hrsh7th/cmp-buffer" },
+  { "hrsh7th/cmp-path" },
   { "saadparwaiz1/cmp_luasnip" },
 
   {
@@ -64,7 +65,7 @@ return {
   {
     "echasnovski/mini.comment",
     keys = {
-      {"<C-/>", mode = { 'n', 'x', 'i' }},
+      { "<C-/>", mode = { 'n', 'x', 'i' } },
     },
     config = function()
       require("mini.comment").setup({
@@ -109,8 +110,8 @@ return {
     keys = {
       { "<leader><leader>j", "<Cmd>HopLineAC<CR>" },
       { "<leader><leader>k", "<Cmd>HopLineBC<CR>" },
-      { "<leader><leader>w", "<Cmd>HopWord<CR>"   },
-      { "<leader><leader>s", "<Cmd>HopChar1<CR>"  },
+      { "<leader><leader>w", "<Cmd>HopWord<CR>" },
+      { "<leader><leader>s", "<Cmd>HopChar1<CR>" },
       { "<leader><leader>l", "<Cmd>HopWorkCurrentLineAC<CR>" },
       { "<leader><leader>h", "<Cmd>HopWorkCurrentLineBC<CR>" },
     },
@@ -136,14 +137,15 @@ return {
       "BufNewFile",
     },
     keys = {
-      { "<C-k>", "<Cmd>Telescope<CR>"                            },
-      { "<M-f>b", "<Cmd>Telescope buffers<CR>"                   },
-      { "<M-f>:", "<Cmd>Telescope command_history<CR>"           },
-      { "<M-f>f", "<Cmd>Telescope find_files<CR>"                },
-      { "<M-f>h", "<Cmd>Telescope oldfiles<CR>"                  },
+      { "<C-k>",  "<Cmd>Telescope<CR>" },
+      { "<M-f>b", "<Cmd>Telescope buffers<CR>" },
+      { "<M-f>:", "<Cmd>Telescope command_history<CR>" },
+      { "<M-f>f", "<Cmd>Telescope find_files<CR>" },
+      { "<M-f>h", "<Cmd>Telescope oldfiles<CR>" },
       { "<M-f>l", "<Cmd>Telescope current_buffer_fuzzy_find<CR>" },
-      { "<M-f>m", "<Cmd>Telescope marks<CR>"                     },
-      { "<M-f>r", "<Cmd>Telescope live_grep<CR>"                 },
+      { "<M-f>m", "<Cmd>Telescope marks<CR>" },
+      { "<M-f>r", "<Cmd>Telescope live_grep<CR>" },
+      { "<M-f>p", "<Cmd>Telescope projects<CR>" },
     },
     dependencies = {
       "nvim-telescope/telescope-ui-select.nvim"
@@ -165,7 +167,7 @@ return {
     "akinsho/toggleterm.nvim",
     cmd = "ToggleTerm",
     keys = {
-      { "<M-=>",  "<Cmd>ToggleTerm size=25<CR>i<C-w>" },
+      { "<M-=>", "<Cmd>ToggleTerm size=25<CR>i<C-w>" },
     },
     config = true,
   },
@@ -178,9 +180,19 @@ return {
     },
     keys = {
       { "<leader>sl", "<Cmd>lua require('spectacle').SpectacleTelescope()<CR>" },
-      { "<leader>ss", "<Cmd>lua require('spectacle').SpectacleSaveAs()<CR>"    },
+      { "<leader>ss", "<Cmd>lua require('spectacle').SpectacleSaveAs()<CR>" },
     },
     config = true,
   },
-}
 
+  {
+    "ahmedkhalf/project.nvim",
+    event = {
+      "BufReadPre",
+      "BufNewFile",
+    },
+    config = function()
+      require("project_nvim").setup()
+    end,
+  },
+}
