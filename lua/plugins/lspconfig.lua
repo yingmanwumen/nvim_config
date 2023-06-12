@@ -37,12 +37,18 @@ return {
     end
   },
 
-  { "lvimuser/lsp-inlayhints.nvim" },
+  {
+    "lvimuser/lsp-inlayhints.nvim",
+    config = true,
+  },
   { "p00f/clangd_extensions.nvim" },
   { "antoinemadec/FixCursorHold.nvim" },
 
   {
     "ray-x/lsp_signature.nvim",
     config = true,
-  }
+  },
+
+  -- rust-tools
+  { "simrat39/rust-tools.nvim" },
 }

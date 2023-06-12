@@ -1,50 +1,3 @@
-local servers = {
-  lua_ls = {
-    settings = {
-      Lua = {
-        codeLens = {
-          enable = true,
-        },
-        hint = {
-          enable = true,
-          setType = true,
-        },
-      },
-    },
-  },
-
-  rust_analyzer = {},
-
-  clangd = {
-    on_attach = function(_, _)
-      require("clangd_extensions").setup({
-        autoSetHints = false,
-      })
-    end
-  },
-
-  pyright = {},
-
-  vimls = {},
-
-  yamlls = {},
-
-  jsonls = {},
-
-  cmake = {},
-}
-
-local server_list = {}
-for server, _ in pairs(servers) do
-  server_list[#server_list + 1] = server
-end
-
-local mason_lspconfig = require("mason-lspconfig")
-mason_lspconfig.setup({
-  automatic_installation = true,
-  ensure_installed       = server_list,
-})
-
 local set_autoformat = function(client, bufnr)
   if client.server_capabilities.documentFormattingProvider then
     vim.api.nvim_create_autocmd("BufWritePre", {
@@ -91,14 +44,82 @@ local on_attach_default = function(client, bufnr)
   set_inlayhints(client, bufnr)
 end
 
+local servers = {
+  lua_ls = {
+    settings = {
+      Lua = {
+        codeLens = { enable = true, },
+        hint = {
+          enable = true,
+          setType = true,
+        },
+      },
+    },
+  },
+
+  rust_analyzer = {
+    manual_setup = function()
+      local rt = require("rust-tools")
+      rt.setup({
+        server = {
+          on_attach = function(client, bufnr)
+            on_attach_default(client, bufnr)
+          end,
+          standalone = true,
+        },
+        tools = {
+          inlay_hints = {
+            auto = false,
+          },
+        },
+      })
+    end
+  },
+
+  clangd = {
+    on_attach = function(_, _)
+      require("clangd_extensions").setup({
+        autoSetHints = false,
+      })
+    end
+  },
+
+  pyright = {},
+
+  vimls = {},
+
+  yamlls = {},
+
+  jsonls = {},
+
+  cmake = {},
+}
+
+local server_list = {}
+for server, _ in pairs(servers) do
+  server_list[#server_list + 1] = server
+end
+
+local mason_lspconfig = require("mason-lspconfig")
+mason_lspconfig.setup({
+  automatic_installation = true,
+  ensure_installed       = server_list,
+})
+
+
 for server, options in pairs(servers) do
-  require("lspconfig")[server].setup({
-    on_attach = function(client, bufnr)
-      on_attach_default(client, bufnr)
-      options.on_attach(client, bufnr)
-    end,
-    settings = options.settings,
-  })
+  if options.manual_setup then
+    options.manual_setup()
+  else
+    require("lspconfig")[server].setup({
+      on_attach = function(client, bufnr)
+        on_attach_default(client, bufnr)
+        options.on_attach(client, bufnr)
+      end,
+      settings = options.settings,
+      root_dir = options.root_dir,
+    })
+  end
 end
 
 local signs = require("config.icons").Dianostics

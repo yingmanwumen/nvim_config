@@ -203,5 +203,42 @@ return {
   {
     "mg979/docgen.vim",
     cmd = "DocGen",
-  }
+  },
+
+  {
+    "Dhanus3133/LeetBuddy.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim",
+    },
+    config = function()
+      require("leetbuddy").setup({
+        language = "cpp",
+      })
+    end,
+    cmd = {
+      "LBQuestions",
+      "LBQuestion",
+      "LBReset",
+      "LBTest",
+      "LBSubmit",
+    },
+  },
+
+  {
+    "lervag/vimtex",
+    ft = { "tex", "latex", "plaintex" },
+    config = function()
+      require("config.plugins.vimtex")
+    end,
+  },
+
+  {
+    "iamcco/markdown-preview.nvim",
+    ft = "markdown",
+    build = "cd app && yarn install",
+    config = function()
+      vim.g.mkdp_auto_close = 0
+    end,
+  },
 }
