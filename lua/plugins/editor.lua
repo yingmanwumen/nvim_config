@@ -26,6 +26,7 @@ return {
   {
     "L3MON4D3/LuaSnip",
     dependencies = "rafamadriz/friendly-snippets",
+    build = "make install_jsregexp",
     keys = {
       {
         "<tab>",
@@ -50,7 +51,10 @@ return {
         end,
         mode = { "i", "s" },
       },
-    }
+    },
+    config = function()
+      require("luasnip.loaders.from_lua").lazy_load({ paths = "~/.config/nvim/LuaSnips/" })
+    end
   },
 
   {
@@ -84,12 +88,24 @@ return {
 
   {
     "nvim-tree/nvim-tree.lua",
+    cmd = {
+      "NvimTreeOpen",
+      "NvimTreeToggle",
+    },
     keys = {
       { "<M-e>", "<Cmd>NvimTreeToggle<CR>" },
     },
     config = function()
       require("config.plugins.nvim-tree")
     end,
+    init = function()
+      vim.cmd [[
+        " Start NvimTree when Vim starts with a directory argument.
+        autocmd StdinReadPre * let s:std_in=1
+        autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') |
+            \ execute 'NvimTreeOpen' argv()[0] | endif
+      ]]
+    end
   },
 
   {
@@ -213,16 +229,10 @@ return {
     },
     config = function()
       require("leetbuddy").setup({
-        language = "cpp",
+        language = "py",
       })
     end,
-    cmd = {
-      "LBQuestions",
-      "LBQuestion",
-      "LBReset",
-      "LBTest",
-      "LBSubmit",
-    },
+    cmd = "LBQuestions",
   },
 
   {
@@ -241,4 +251,41 @@ return {
       vim.g.mkdp_auto_close = 0
     end,
   },
+
+  {
+    "simrat39/symbols-outline.nvim",
+    cmd = "SymbolsOutline",
+    keys = {
+      { "<M-v>", "<Cmd>SymbolsOutline<CR>" },
+    },
+    config = function()
+      require("config.plugins.symbols-outline")
+    end,
+  },
+
+  {
+    "RRethy/vim-illuminate",
+    event = "CursorHold",
+    init = function()
+      vim.api.nvim_create_autocmd({ "ColorScheme" }, {
+        pattern = { "*" },
+        callback = function(_)
+          vim.api.nvim_set_hl(0, "IlluminatedWordText", { link = "Visual" })
+          vim.api.nvim_set_hl(0, "IlluminatedWordRead", { link = "Visual" })
+          vim.api.nvim_set_hl(0, "IlluminatedWordWrite", { link = "Visual" })
+        end
+      })
+    end
+  },
+
+  {
+    "romainl/vim-cool",
+    keys = {
+      { "n" },
+      { "N" },
+      { "#" },
+      { "*" },
+    }
+  },
+
 }

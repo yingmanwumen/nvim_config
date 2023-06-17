@@ -13,7 +13,7 @@ return {
       "ray-x/lsp_signature.nvim",
     },
     config = function()
-      require("config.plugins.nvim-lspconfig")
+      require("config.plugins.lspconfig")
     end,
   },
 
@@ -32,9 +32,9 @@ return {
       require("nvim-lightbulb").setup({
         autocmd = {
           enabled = true,
-        }
+        },
       })
-    end
+    end,
   },
 
   {
@@ -49,6 +49,28 @@ return {
     config = true,
   },
 
-  -- rust-tools
   { "simrat39/rust-tools.nvim" },
+
+  {
+    "rust-lang/rust.vim",
+    ft = "rust",
+    config = function()
+      vim.cmd [[let g:rustfmt_autosave = 1]]
+    end
+  },
+
+  {
+    "SmiteshP/nvim-navbuddy",
+    dependencies = "SmiteshP/nvim-navic",
+    cmd = "Navbuddy",
+    keys = {
+      { "gn", "<Cmd>Navbuddy<CR>" }
+    },
+    config = function()
+      require("nvim-navbuddy").setup({
+        icons = require("config.icons").Kinds,
+      })
+    end
+  },
+  { "SmiteshP/nvim-navic" },
 }

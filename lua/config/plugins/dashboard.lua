@@ -1,9 +1,9 @@
 require("dashboard").setup({
-  theme = "hyper",
-  disable_move = true,
+  theme         = "hyper",
+  disable_move  = true,
   shortcut_type = "number",
-  buffer_name = "Dashboard",
-  config = {
+  buffer_name   = "Dashboard",
+  config        = {
     week_header = {
       enable = true,
     },
@@ -15,12 +15,20 @@ require("dashboard").setup({
     },
     shortcut = {
       {
-        icon = "💤",
+        icon    = "💤",
         icon_hl = "@variable",
-        desc = "Lazy",
-        group = "Label",
-        action = "Lazy",
-        key = "L",
+        desc    = "Lazy",
+        group   = "Label",
+        action  = "Lazy",
+        key     = "L",
+      },
+      {
+        icon    = "🪨",
+        icon_hl = "@variable",
+        desc    = "Mason",
+        group   = "Label",
+        action  = "Mason",
+        key     = "M",
       },
     },
     mru = {
@@ -32,8 +40,8 @@ require("dashboard").setup({
       return { "", "Loaded " .. stats.count .. " plugins in " .. ms .. "ms 🕑" }
     end,
   },
-  hide = {
+  hide          = {
     statusline = true,
-    tabline = true,
+    tabline    = true,
   },
 })

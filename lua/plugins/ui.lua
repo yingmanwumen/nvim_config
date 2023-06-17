@@ -6,6 +6,8 @@ return {
     },
   },
 
+  { "navarasu/onedark.nvim" },
+
   { "nvim-tree/nvim-web-devicons" },
   { "MunifTanjim/nui.nvim" },
 
@@ -129,5 +131,19 @@ return {
   {
     "kevinhwang91/nvim-bqf",
     ft = 'qf'
+  },
+
+  {
+    "stevearc/dressing.nvim",
+    init = function()
+      vim.ui.select = function(...)
+        require("lazy").load({ plugins = { "dressing.nvim" } })
+        return vim.ui.select(...)
+      end
+      vim.ui.input = function(...)
+        require("lazy").load({ plugins = { "dressing.nvim" } })
+        return vim.ui.input(...)
+      end
+    end,
   },
 }

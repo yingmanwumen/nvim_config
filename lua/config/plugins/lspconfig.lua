@@ -14,6 +14,7 @@ local set_keymappings = function(bufnr)
   vim.keymap.set('n', 'K', vim.lsp.buf.hover, { buffer = bufnr })
   vim.keymap.set('n', 'gd', '<Cmd>Telescope lsp_definitions<CR>', { buffer = bufnr })
   vim.keymap.set('n', 'gr', '<Cmd>Telescope lsp_references<CR>', { buffer = bufnr })
+  vim.keymap.set('n', 'gi', '<Cmd>Telescope lsp_implementations<CR>', { buffer = bufnr })
   vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { buffer = bufnr })
   vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { buffer = bufnr })
   vim.keymap.set('n', '<leader>ac', vim.lsp.buf.code_action, { buffer = bufnr })
@@ -37,25 +38,20 @@ local set_inlayhints = function(client, bufnr)
   require("lsp-inlayhints").on_attach(client, bufnr)
 end
 
-local on_attach_default = function(client, bufnr)
+local on_attach_default = function(client, bufnr, options)
   set_keymappings(bufnr)
   set_codelens(client, bufnr)
-  set_autoformat(client, bufnr)
+  if type(options.autoformat) == "function" then
+    options.autoformat(bufnr)
+  else
+    set_autoformat(client, bufnr)
+  end
   set_inlayhints(client, bufnr)
+  require("nvim-navbuddy").attach(client, bufnr)
 end
 
 local servers = {
-  lua_ls = {
-    settings = {
-      Lua = {
-        codeLens = { enable = true, },
-        hint = {
-          enable = true,
-          setType = true,
-        },
-      },
-    },
-  },
+  lua_ls = require("config.plugins.lua_ls"),
 
   rust_analyzer = {
     manual_setup = function()
@@ -76,13 +72,7 @@ local servers = {
     end
   },
 
-  clangd = {
-    on_attach = function(_, _)
-      require("clangd_extensions").setup({
-        autoSetHints = false,
-      })
-    end
-  },
+  clangd = require("config.plugins.clangd"),
 
   pyright = {},
 
@@ -93,6 +83,10 @@ local servers = {
   jsonls = {},
 
   cmake = {},
+
+  gopls = {},
+
+  -- lemminx = {},
 }
 
 local server_list = {}
@@ -113,8 +107,10 @@ for server, options in pairs(servers) do
   else
     require("lspconfig")[server].setup({
       on_attach = function(client, bufnr)
-        on_attach_default(client, bufnr)
-        options.on_attach(client, bufnr)
+        on_attach_default(client, bufnr, options)
+        if type(options.on_attach) == "function" then
+          options.on_attach(client, bufnr)
+        end
       end,
       settings = options.settings,
       root_dir = options.root_dir,

@@ -1,32 +1,38 @@
 local telescope = require("telescope")
+local actions = require("telescope.actions")
 
 telescope.setup({
   defaults = {
     dynamic_preview_title = true,
-    prompt_prefix = "❯ ",
-    selection_caret = "➤ ",
-    preview = false,
-    sorting_strategy = "ascending",
-    layout_strategy = "center",
-    layout_config = {
+    prompt_prefix         = "❯ ",
+    selection_caret       = "➤ ",
+    preview               = false,
+    sorting_strategy      = "ascending",
+    layout_strategy       = "center",
+    layout_config         = {
       center = {
         anchor = "N",
       }
-    }
+    },
+    mappings              = {
+      i = {
+        ["<ESC>"] = actions.close
+      },
+    },
   },
   pickers = {
-    command_history           = { theme = "dropdown" },
-    command                   = { theme = "dropdown" },
-    spell_suggest             = { theme = "dropdown" },
+    buffers                   = { theme = "dropdown", preview = true },
     builtin                   = { theme = "dropdown", previewer = false },
+    command                   = { theme = "dropdown" },
+    command_history           = { theme = "dropdown" },
     current_buffer_fuzzy_find = { theme = "dropdown" },
-    buffers                   = { theme = "dropdown" },
-    find_files                = { theme = "dropdown" },
-    oldfiles                  = { theme = "dropdown" },
-    marks                     = { theme = "dropdown" },
-    live_grep                 = { theme = "dropdown" },
-    lsp_references            = { theme = "cursor", preview = true },
+    find_files                = { theme = "dropdown", preview = true },
+    live_grep                 = { theme = "dropdown", preview = true },
     lsp_definitions           = { theme = "cursor", preview = true },
+    lsp_references            = { theme = "cursor", preview = true },
+    marks                     = { theme = "dropdown" },
+    oldfiles                  = { theme = "dropdown", preview = true },
+    spell_suggest             = { theme = "dropdown" },
   },
   extensions = {
     ["ui-select"] = {

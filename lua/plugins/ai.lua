@@ -1,7 +1,7 @@
 return {
   {
     "tzachar/cmp-tabnine",
-    build = './install.sh',
+    build  = './install.sh',
     config = true
   },
 
