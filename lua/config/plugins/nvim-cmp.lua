@@ -18,13 +18,14 @@ cmp.setup({
     ["<C-Space>"] = cmp.mapping.complete(),
   }),
   sources = cmp.config.sources({
-    { name = "nvim_lsp" },
-    { name = "nvim_lua" },
-    { name = "luasnip" },
     { name = "buffer" },
-    { name = "path" },
     { name = "cmp_tabnine" },
     { name = "git" },
+    { name = "luasnip" },
+    { name = "nvim_lsp" },
+    { name = "nvim_lua" },
+    { name = "path" },
+    { name = "omni" },
   }),
   formatting = {
     format = function(_, item)

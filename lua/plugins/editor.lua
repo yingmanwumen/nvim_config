@@ -1,4 +1,15 @@
 return {
+  { "honza/vim-snippets" },
+  { "hrsh7th/cmp-buffer" },
+  { "hrsh7th/cmp-nvim-lsp" },
+  { "hrsh7th/cmp-nvim-lua" },
+  { "hrsh7th/cmp-omni" },
+  { "hrsh7th/cmp-path" },
+  { "nvim-lua/plenary.nvim" },
+  { "nvim-telescope/telescope-ui-select.nvim" },
+  { "petertriho/cmp-git" },
+  { "saadparwaiz1/cmp_luasnip" },
+
   {
     "hrsh7th/nvim-cmp",
     event = "InsertEnter",
@@ -16,16 +27,11 @@ return {
     end
   },
 
-  { "hrsh7th/cmp-nvim-lsp" },
-  { "hrsh7th/cmp-buffer" },
-  { "hrsh7th/cmp-path" },
-  { "hrsh7th/cmp-nvim-lua" },
-  { "petertriho/cmp-git" },
-  { "saadparwaiz1/cmp_luasnip" },
-
   {
     "L3MON4D3/LuaSnip",
-    dependencies = "rafamadriz/friendly-snippets",
+    dependencies = {
+      "honza/vim-snippets"
+    },
     build = "make install_jsregexp",
     keys = {
       {
@@ -53,15 +59,10 @@ return {
       },
     },
     config = function()
-      require("luasnip.loaders.from_lua").lazy_load({ paths = "~/.config/nvim/LuaSnips/" })
-    end
-  },
-
-  {
-    "rafamadriz/friendly-snippets",
-    config = function()
+      require("luasnip.loaders.from_snipmate").lazy_load({ paths = "~/.config/nvim/LuaSnips/" })
       require("luasnip.loaders.from_vscode").lazy_load()
-    end,
+      require("luasnip.loaders.from_snipmate").lazy_load()
+    end
   },
 
   {
@@ -175,7 +176,6 @@ return {
     end,
   },
 
-  { "nvim-telescope/telescope-ui-select.nvim" },
 
   {
     "wintermute-cell/gitignore.nvim",
@@ -237,6 +237,7 @@ return {
 
   {
     "lervag/vimtex",
+    dependencies = "hrsh7th/cmp-omni",
     ft = { "tex", "latex", "plaintex" },
     config = function()
       require("config.plugins.vimtex")
@@ -285,7 +286,29 @@ return {
       { "N" },
       { "#" },
       { "*" },
+      { "/" },
+      { "?" },
     }
   },
 
+  {
+    "tpope/vim-speeddating",
+    keys = {
+      { "<C-A>" },
+      { "<C-X>" },
+    },
+  },
+
+  {
+    "tpope/vim-repeat",
+    event = "VeryLazy",
+  },
+
+  {
+    "dstein64/vim-startuptime",
+    cmd = "StartupTime",
+    config = function()
+      vim.g.startuptime_tries = 100
+    end,
+  },
 }

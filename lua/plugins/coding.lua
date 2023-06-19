@@ -1,4 +1,10 @@
 return {
+  { "SmiteshP/nvim-navic" },
+  { "antoinemadec/FixCursorHold.nvim" },
+  { "p00f/clangd_extensions.nvim" },
+  { "simrat39/rust-tools.nvim" },
+  { "williamboman/mason-lspconfig.nvim" },
+
   {
     "neovim/nvim-lspconfig",
     event = {
@@ -16,8 +22,6 @@ return {
       require("config.plugins.lspconfig")
     end,
   },
-
-  { "williamboman/mason-lspconfig.nvim" },
 
   {
     "williamboman/mason.nvim",
@@ -41,15 +45,11 @@ return {
     "lvimuser/lsp-inlayhints.nvim",
     config = true,
   },
-  { "p00f/clangd_extensions.nvim" },
-  { "antoinemadec/FixCursorHold.nvim" },
 
   {
     "ray-x/lsp_signature.nvim",
     config = true,
   },
-
-  { "simrat39/rust-tools.nvim" },
 
   {
     "rust-lang/rust.vim",
@@ -72,5 +72,24 @@ return {
       })
     end
   },
-  { "SmiteshP/nvim-navic" },
+
+  {
+    "tzachar/cmp-tabnine",
+    build  = './install.sh',
+    config = true
+  },
+
+  {
+    "Exafunction/codeium.vim",
+    event = "InsertEnter",
+    keys = {
+      { "<M-c>",  "<Cmd>call codeium#Clear()<CR>", mode = "i" },
+      { "<C-CR>", "codeium#Accept()",              mode = "i", nowait = true, expr = true, silent = true, script = true },
+    },
+    config = function()
+      vim.cmd [[
+        let g:codeium_filetypes = { 'markdown': v:false }
+      ]]
+    end
+  },
 }

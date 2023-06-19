@@ -1,15 +1,14 @@
 return {
+  { "navarasu/onedark.nvim" },
+  { "nvim-tree/nvim-web-devicons" },
+  { "MunifTanjim/nui.nvim" },
+
   {
     "folke/tokyonight.nvim",
     opts = {
       style = "moon",
     },
   },
-
-  { "navarasu/onedark.nvim" },
-
-  { "nvim-tree/nvim-web-devicons" },
-  { "MunifTanjim/nui.nvim" },
 
   {
     "akinsho/bufferline.nvim",

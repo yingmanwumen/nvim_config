@@ -10,8 +10,10 @@ local set_autoformat = function(client, bufnr)
   end
 end
 
-local set_keymappings = function(bufnr)
-  vim.keymap.set('n', 'K', vim.lsp.buf.hover, { buffer = bufnr })
+local set_keymappings = function(client, bufnr)
+  if client.server_capabilities.hoverProvider then
+    vim.keymap.set('n', 'K', vim.lsp.buf.hover, { buffer = bufnr })
+  end
   vim.keymap.set('n', 'gd', '<Cmd>Telescope lsp_definitions<CR>', { buffer = bufnr })
   vim.keymap.set('n', 'gr', '<Cmd>Telescope lsp_references<CR>', { buffer = bufnr })
   vim.keymap.set('n', 'gi', '<Cmd>Telescope lsp_implementations<CR>', { buffer = bufnr })
@@ -39,7 +41,7 @@ local set_inlayhints = function(client, bufnr)
 end
 
 local on_attach_default = function(client, bufnr, options)
-  set_keymappings(bufnr)
+  set_keymappings(client, bufnr)
   set_codelens(client, bufnr)
   if type(options.autoformat) == "function" then
     options.autoformat(bufnr)
@@ -47,12 +49,36 @@ local on_attach_default = function(client, bufnr, options)
     set_autoformat(client, bufnr)
   end
   set_inlayhints(client, bufnr)
-  require("nvim-navbuddy").attach(client, bufnr)
+  if client.server_capabilities.documentSymbolsProvider then
+    require("nvim-navbuddy").attach(client, bufnr)
+  end
+end
+
+local modify_buffer = function(bufnr, callback)
+  local cursor = vim.api.nvim_win_get_cursor(0)
+  local lines = vim.api.nvim_buf_get_lines(bufnr, 0, -1, false)
+  local tmp_file = os.tmpname()
+  local f = io.open(tmp_file, "w")
+  if f == nil then
+    vim.api.nvim_err_writeln("Failed to create temporary file")
+    return
+  end
+  f:write(table.concat(lines, "\n"))
+  f:close()
+  callback(tmp_file)
+  f = io.open(tmp_file, "r")
+  if f == nil then
+    vim.api.nvim_err_writeln("Failed to read temporary file")
+    return
+  end
+  local text = f:read("*a")
+  lines = vim.split(text, "\n")
+  vim.api.nvim_buf_set_lines(0, 0, -1, false, lines)
+  vim.api.nvim_win_set_cursor(0, cursor)
+  os.remove(tmp_file)
 end
 
 local servers = {
-  lua_ls = require("config.plugins.lua_ls"),
-
   rust_analyzer = {
     manual_setup = function()
       local rt = require("rust-tools")
@@ -72,21 +98,43 @@ local servers = {
     end
   },
 
-  clangd = require("config.plugins.clangd"),
+  pyright       = {
+    settings = {
+      python = {
+        analysis = {
+          typeCheckingMode = "strict"
+        }
+      }
+    },
+    autoformat = function(bufnr)
+      local group = vim.api.nvim_create_augroup("AutoFormat", { clear = false })
+      vim.api.nvim_create_autocmd("BufWritePre", {
+        group = group,
+        buffer = bufnr,
+        callback = function()
+          modify_buffer(bufnr, function(file)
+            vim.fn.execute("! black " .. file)
+          end)
+        end
+      })
+    end
+  },
 
-  pyright = {},
+  sourcery      = {
+    on_attach = function(client, _)
+      client.server_capabilities.hoverProvider = false
+    end
+  },
 
-  vimls = {},
-
-  yamlls = {},
-
-  jsonls = {},
-
-  cmake = {},
-
-  gopls = {},
-
-  -- lemminx = {},
+  clangd        = require("config.plugins.clangd"),
+  lua_ls        = require("config.plugins.lua_ls"),
+  bashls        = {},
+  cmake         = {},
+  gopls         = {},
+  jsonls        = {},
+  vimls         = {},
+  yamlls        = {},
+  -- texlab = {},
 }
 
 local server_list = {}
