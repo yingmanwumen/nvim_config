@@ -1,11 +1,12 @@
+local utils = require("config.plugins.lspconfig_utils")
+local on_attach_default = utils.on_attach_default
+
 return {
   manual_setup = function()
     local rt = require("rust-tools")
     rt.setup({
       server = {
-        on_attach = function(client, bufnr)
-          On_attach_default(client, bufnr)
-        end,
+        on_attach = on_attach_default,
         standalone = true,
       },
       tools = {

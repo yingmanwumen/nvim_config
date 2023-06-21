@@ -1,7 +1,6 @@
 return {
   { "SmiteshP/nvim-navic" },
   { "antoinemadec/FixCursorHold.nvim" },
-  { "p00f/clangd_extensions.nvim" },
   { "simrat39/rust-tools.nvim" },
   { "williamboman/mason-lspconfig.nvim" },
 

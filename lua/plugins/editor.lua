@@ -153,10 +153,6 @@ return {
   {
     "nvim-telescope/telescope.nvim",
     cmd = "Telescope",
-    event = {
-      "BufReadPost",
-      "BufNewFile",
-    },
     keys = {
       { "<C-k>",  "<Cmd>Telescope<CR>" },
       { "<M-f>b", "<Cmd>Telescope buffers<CR>" },
@@ -266,7 +262,10 @@ return {
 
   {
     "RRethy/vim-illuminate",
-    event = "CursorHold",
+    event = {
+      "BufReadPost",
+      "BufNewFile"
+    },
     init = function()
       vim.api.nvim_create_autocmd({ "ColorScheme" }, {
         pattern = { "*" },
@@ -311,4 +310,14 @@ return {
       vim.g.startuptime_tries = 100
     end,
   },
+
+  {
+    "NvChad/nvim-colorizer.lua",
+    event = {
+      "BufReadPost",
+      "BufNewFile",
+    },
+    cmd = "ColorizerToggle",
+    config = true
+  }
 }

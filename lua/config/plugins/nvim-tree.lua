@@ -18,6 +18,7 @@ local function on_attach(bufnr)
   vim.keymap.set('n', '?', api.tree.toggle_help, opts('Help'))
   vim.keymap.set('n', '[g', api.node.navigate.git.prev, opts('Prev Git'))
   vim.keymap.set('n', ']g', api.node.navigate.git.next, opts('Next Git'))
+  vim.keymap.set('n', 's', api.node.open.horizontal, opts('Horizontal Split'))
 end
 
 require("nvim-tree").setup({

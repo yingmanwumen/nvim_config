@@ -23,6 +23,10 @@ function s:set_indent_width(width, is_expand)
   endif
 endfunction
 
+function s:set_markdown_keymap()
+  inoremap <C-b> ****<LEFT><LEFT>
+endfunction
+
 augroup MyAutoCmd
   autocmd!
   autocmd BufNewFile,BufRead *.cl  setlocal filetype=opencl
@@ -30,4 +34,5 @@ augroup MyAutoCmd
   autocmd FileType cpp,cmake,cuda call <SID>set_indent_width(4, v:true)
   autocmd FileType c,go call <SID>set_indent_width(8, v:false)
   autocmd FileType latex,plaintex,tex,markdown call <SID>autosave() | setlocal conceallevel=1 | call <SID>set_indent_width(2, v:true)
+  autocmd FileType markdown call <SID>set_markdown_keymap()
 augroup END

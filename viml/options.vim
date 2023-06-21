@@ -3,9 +3,6 @@ filetype plugin indent on
 syntax on
 syntax sync minlines=256
 
-" colorscheme tokyonight
-colorscheme onedark
-
 set autoindent
 set autoread
 set cindent
@@ -35,3 +32,10 @@ set wrap
 
 let g:loaded_netrw = 1
 let g:loaded_netrwPlugin = 1
+
+" set bg=light
+" set bg=dark
+
+" colorscheme tokyonight
+colorscheme onedark
+" colorscheme gruvbox-material

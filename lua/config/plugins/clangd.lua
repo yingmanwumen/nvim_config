@@ -1,32 +1,11 @@
-local modify_buffer = function(bufnr, callback)
-  local cursor = vim.api.nvim_win_get_cursor(0)
-  local lines = vim.api.nvim_buf_get_lines(bufnr, 0, -1, false)
-  local tmp_file = os.tmpname()
-  local f = io.open(tmp_file, "w")
-  if f == nil then
-    vim.api.nvim_err_writeln("Failed to create temporary file")
-    return
-  end
-  f:write(table.concat(lines, "\n"))
-  f:close()
-  callback(tmp_file)
-  f = io.open(tmp_file, "r")
-  if f == nil then
-    vim.api.nvim_err_writeln("Failed to read temporary file")
-    return
-  end
-  local text = f:read("*a")
-  lines = vim.split(text, "\n")
-  vim.api.nvim_buf_set_lines(0, 0, -1, false, lines)
-  vim.api.nvim_win_set_cursor(0, cursor)
-  os.remove(tmp_file)
-end
+local utils = require("config.plugins.lspconfig_utils")
+local modify_buffer = utils.modify_buffer
 
 return {
   on_attach = function(_, _)
-    require("clangd_extensions").setup({
-      autoSetHints = false,
-    })
+    -- require("clangd_extensions").setup({
+    --   autoSetHints = false,
+    -- })
   end,
   settings = {},
   autoformat = function(bufnr)
@@ -45,7 +24,7 @@ return {
         vim.fn.execute("! clang-format -i " .. style .. " " .. file)
       end)
     end
-    vim.api.nvim_create_autocmd("BufWritePost", {
+    vim.api.nvim_create_autocmd("BufWritePre", {
       group = group,
       buffer = bufnr,
       callback = function()

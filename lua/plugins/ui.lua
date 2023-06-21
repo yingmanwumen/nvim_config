@@ -4,6 +4,15 @@ return {
   { "MunifTanjim/nui.nvim" },
 
   {
+    "sainnhe/gruvbox-material",
+    config = function()
+      vim.cmd [[
+        let g:gruvbox_material_background = 'soft'
+      ]]
+    end
+  },
+
+  {
     "folke/tokyonight.nvim",
     opts = {
       style = "moon",
@@ -12,7 +21,10 @@ return {
 
   {
     "akinsho/bufferline.nvim",
-    event = "VeryLazy",
+    event = {
+      "BufReadPre",
+      "BufNewFile"
+    },
     keys = {
       { "<M-j>", "<Cmd>BufferLineCyclePrev<CR>" },
       { "<M-k>", "<Cmd>BufferLineCycleNext<CR>" },
@@ -33,7 +45,10 @@ return {
 
   {
     "nvim-lualine/lualine.nvim",
-    event = "VeryLazy",
+    event = {
+      "BufReadPre",
+      "BufNewFile"
+    },
     config = function()
       require("config.plugins.lualine")
     end
@@ -140,6 +155,7 @@ return {
         return vim.ui.select(...)
       end
       vim.ui.input = function(...)
+        ---@diagnostic disable-next-line: different-requires
         require("lazy").load({ plugins = { "dressing.nvim" } })
         return vim.ui.input(...)
       end
