@@ -4,16 +4,10 @@ require("dashboard").setup({
   shortcut_type = "number",
   buffer_name   = "Dashboard",
   config        = {
-    week_header = {
-      enable = true,
-    },
-    packages = {
-      enable = false,
-    },
-    project = {
-      enable = false,
-    },
-    shortcut = {
+    week_header = { enable = true },
+    packages    = { enable = false },
+    project     = { enable = false },
+    shortcut    = {
       {
         icon    = "💤",
         icon_hl = "@variable",
@@ -31,12 +25,10 @@ require("dashboard").setup({
         key     = "M",
       },
     },
-    mru = {
-      limit = 20,
-    },
-    footer = function()
+    mru         = { limit = 20 },
+    footer      = function()
       local stats = require("lazy").stats()
-      local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
+      local ms    = (math.floor(stats.startuptime * 100 + 0.5) / 100)
       return { "", "Loaded " .. stats.count .. " plugins in " .. ms .. "ms 🕑" }
     end,
   },

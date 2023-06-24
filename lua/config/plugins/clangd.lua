@@ -1,37 +1,30 @@
 local utils = require("config.plugins.lspconfig_utils")
-local modify_buffer = utils.modify_buffer
+local format_buffer = utils.format_buffer
+
+local format_c = function(bufnr, style)
+  format_buffer(bufnr, function(file)
+    vim.fn.execute("! indent " .. style .. " " .. file .. " -o " .. file)
+  end)
+end
+
+local format_cpp = function(bufnr, style, indent)
+  style = "-style='{BasedOnStyle: " .. style .. ", IndentWidth: " .. indent .. "}'"
+  format_buffer(bufnr, function(file)
+    vim.fn.execute("! clang-format -i " .. style .. " " .. file)
+  end)
+end
 
 return {
-  on_attach = function(_, _)
-    -- require("clangd_extensions").setup({
-    --   autoSetHints = false,
-    -- })
-  end,
-  settings = {},
   autoformat = function(bufnr)
     local group = vim.api.nvim_create_augroup("AutoFormat", { clear = false })
-    local format_c = function()
-      local style = "--linux-style"
-      modify_buffer(bufnr, function(file)
-        vim.fn.execute("! indent " .. style .. " " .. file .. " -o " .. file)
-      end)
-    end
-    local format_cpp = function()
-      local style = "llvm"
-      local indent_width = 4
-      style = "-style='{BasedOnStyle: " .. style .. ", IndentWidth: " .. indent_width .. "}'"
-      modify_buffer(bufnr, function(file)
-        vim.fn.execute("! clang-format -i " .. style .. " " .. file)
-      end)
-    end
     vim.api.nvim_create_autocmd("BufWritePre", {
-      group = group,
-      buffer = bufnr,
+      group    = group,
+      buffer   = bufnr,
       callback = function()
         if vim.bo.filetype == "c" then
-          format_c()
+          format_c(bufnr, "--linux-style")
         else
-          format_cpp()
+          format_cpp(bufnr, "llvm", 4)
         end
       end
     })

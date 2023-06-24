@@ -1,8 +1,7 @@
 local utils = require("config.plugins.lspconfig_utils")
-
 local on_attach_default = utils.on_attach_default
 
-local servers = {
+local lsps = {
   sourcery      = {
     on_attach = function(client, _)
       client.server_capabilities.hoverProvider = false
@@ -22,7 +21,7 @@ local servers = {
 }
 
 local server_list = {}
-for server, _ in pairs(servers) do
+for server, _ in pairs(lsps) do
   server_list[#server_list + 1] = server
 end
 
@@ -32,7 +31,7 @@ mason_lspconfig.setup({
   ensure_installed       = server_list,
 })
 
-for server, options in pairs(servers) do
+for server, options in pairs(lsps) do
   if type(options.manual_setup) == "function" then
     options.manual_setup()
   else
@@ -44,7 +43,6 @@ for server, options in pairs(servers) do
         end
       end,
       settings = options.settings,
-      root_dir = options.root_dir,
     })
   end
 end

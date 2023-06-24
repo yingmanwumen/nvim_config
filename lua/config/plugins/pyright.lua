@@ -1,5 +1,5 @@
 local utils = require("config.plugins.lspconfig_utils")
-local modify_buffer = utils.modify_buffer
+local format_buffer = utils.format_buffer
 
 return {
   settings = {
@@ -12,10 +12,10 @@ return {
   autoformat = function(bufnr)
     local group = vim.api.nvim_create_augroup("AutoFormat", { clear = false })
     vim.api.nvim_create_autocmd("BufWritePre", {
-      group = group,
-      buffer = bufnr,
+      group    = group,
+      buffer   = bufnr,
       callback = function()
-        modify_buffer(bufnr, function(file)
+        format_buffer(bufnr, function(file)
           vim.fn.execute("! black " .. file)
         end)
       end

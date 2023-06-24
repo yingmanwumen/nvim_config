@@ -10,14 +10,10 @@ require("noice").setup({
         event = "msg_show",
         find  = "written",
       },
-      opts = {
-        skip = true
-      },
+      opts = { skip = true },
     },
   },
   lsp = {
-    signature = {
-      enabled = false,
-    }
+    signature = { enabled = false }
   }
 })

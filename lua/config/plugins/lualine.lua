@@ -16,9 +16,7 @@ require("lualine").setup({
       },
     },
     extensions = { "lazy" },
-    refresh = {
-      statusline = 150,
-    }
+    refresh = { statusline = 150 }
   },
   sections = {
     lualine_c = {

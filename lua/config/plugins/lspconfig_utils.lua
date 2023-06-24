@@ -1,8 +1,8 @@
 local set_autoformat = function(client, bufnr)
   if client.server_capabilities.documentFormattingProvider then
     vim.api.nvim_create_autocmd("BufWritePre", {
-      group = vim.api.nvim_create_augroup("AutoFormat", { clear = false }),
-      buffer = bufnr,
+      group    = vim.api.nvim_create_augroup("AutoFormat", { clear = false }),
+      buffer   = bufnr,
       callback = function()
         vim.lsp.buf.format()
       end
@@ -27,11 +27,9 @@ end
 local set_codelens = function(client, bufnr)
   if client.server_capabilities.codeLensProvider then
     vim.api.nvim_create_autocmd({ "CursorHold", "BufEnter", "InsertLeave" }, {
-      group = vim.api.nvim_create_augroup("CodeLens", { clear = false }),
-      buffer = bufnr,
-      callback = function()
-        vim.lsp.codelens.refresh()
-      end
+      group    = vim.api.nvim_create_augroup("CodeLens", { clear = false }),
+      buffer   = bufnr,
+      callback = vim.lsp.codelens.refresh
     })
   end
 end
@@ -55,10 +53,10 @@ local on_attach_default = function(client, bufnr, options)
 end
 
 local modify_buffer = function(bufnr, callback)
-  local cursor = vim.api.nvim_win_get_cursor(0)
-  local lines = vim.api.nvim_buf_get_lines(bufnr, 0, -1, false)
+  local cursor   = vim.api.nvim_win_get_cursor(0)
+  local lines    = vim.api.nvim_buf_get_lines(bufnr, 0, -1, false)
   local tmp_file = os.tmpname()
-  local f = io.open(tmp_file, "w")
+  local f        = io.open(tmp_file, "w")
   if f == nil then
     vim.api.nvim_err_writeln("Failed to create temporary file")
     return
@@ -80,10 +78,10 @@ local modify_buffer = function(bufnr, callback)
 end
 
 return {
-  set_autoformat = set_autoformat,
-  set_keymappings = set_keymappings,
-  set_codelens = set_codelens,
-  set_inlayhints = set_inlayhints,
+  set_autoformat    = set_autoformat,
+  set_keymappings   = set_keymappings,
+  set_codelens      = set_codelens,
+  set_inlayhints    = set_inlayhints,
   on_attach_default = on_attach_default,
-  modify_buffer = modify_buffer,
+  format_buffer     = modify_buffer,
 }

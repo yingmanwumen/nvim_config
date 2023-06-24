@@ -1,6 +1,5 @@
 local icons = require("config.icons").Kinds
 
-
 local opts = {
   keymaps = {
     close          = { "<Esc>", "q" },

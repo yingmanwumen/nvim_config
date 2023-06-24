@@ -10,9 +10,7 @@ return {
         standalone = true,
       },
       tools = {
-        inlay_hints = {
-          auto = false,
-        },
+        inlay_hints = { auto = false },
       },
     })
   end
