@@ -198,7 +198,6 @@ return {
       { "<leader>sl", "<Cmd>lua require('spectacle').SpectacleTelescope()<CR>" },
       { "<leader>ss", "<Cmd>lua require('spectacle').SpectacleSaveAs()<CR>" },
     },
-    config = true,
   },
 
   {
@@ -213,8 +212,16 @@ return {
   },
 
   {
-    "mg979/docgen.vim",
-    cmd = "DocGen",
+    "kkoomen/vim-doge",
+    build = ":call doge#install()",
+    event = {
+      "BufReadPost",
+      "BufNewFile",
+    },
+    config = function()
+      vim.g.doge_doc_standard_cpp = "doxygen_cpp_comment_slash"
+      vim.g.doge_doc_standard_c = "kernel_doc"
+    end
   },
 
   {
@@ -319,5 +326,5 @@ return {
     },
     cmd = "ColorizerToggle",
     config = true
-  }
+  },
 }

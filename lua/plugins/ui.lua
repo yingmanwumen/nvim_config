@@ -99,7 +99,9 @@ return {
           "dashboard",
           "Trouble",
           "lazy",
-          "NvimTree"
+          "NvimTree",
+          "Outline",
+          "mason",
         },
         show_trailing_blankline_indent = false,
         show_current_context = false,

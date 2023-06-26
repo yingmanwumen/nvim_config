@@ -33,9 +33,9 @@ set wrap
 let g:loaded_netrw = 1
 let g:loaded_netrwPlugin = 1
 
-" set bg=light
+set bg=light
 " set bg=dark
 
 " colorscheme tokyonight
-colorscheme onedark
-" colorscheme gruvbox-material
+" colorscheme onedark
+colorscheme gruvbox-material

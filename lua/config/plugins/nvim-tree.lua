@@ -19,6 +19,7 @@ local function on_attach(bufnr)
   vim.keymap.set('n', '[g', api.node.navigate.git.prev, opts('Prev Git'))
   vim.keymap.set('n', ']g', api.node.navigate.git.next, opts('Next Git'))
   vim.keymap.set('n', 's', api.node.open.horizontal, opts('Horizontal Split'))
+  vim.keymap.set('n', 'K', api.node.show_info_popup, opts('Info'))
 end
 
 require("nvim-tree").setup({
@@ -29,4 +30,7 @@ require("nvim-tree").setup({
     enable      = true,
     update_root = true,
   },
+  filters             = {
+    dotfiles = true,
+  }
 })
