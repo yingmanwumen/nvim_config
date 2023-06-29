@@ -6,7 +6,6 @@ telescope.setup({
     dynamic_preview_title = true,
     prompt_prefix         = "❯ ",
     selection_caret       = "➤ ",
-    preview               = false,
     sorting_strategy      = "ascending",
     layout_strategy       = "center",
     layout_config         = {
@@ -25,7 +24,7 @@ telescope.setup({
     builtin                   = { theme = "dropdown", previewer = false },
     command                   = { theme = "dropdown" },
     command_history           = { theme = "dropdown" },
-    current_buffer_fuzzy_find = { theme = "dropdown" },
+    current_buffer_fuzzy_find = { theme = "dropdown", preview = true },
     find_files                = { theme = "dropdown", preview = true },
     live_grep                 = { theme = "dropdown", preview = true },
     lsp_definitions           = { theme = "cursor", preview = true },
@@ -38,8 +37,12 @@ telescope.setup({
     ["ui-select"] = {
       require("telescope.themes").get_cursor()
     },
+    ["fzf"] = {
+      fuzzy = true,
+    },
   }
 })
 
 require("telescope").load_extension("ui-select")
 require("telescope").load_extension("projects")
+require("telescope").load_extension("fzf")

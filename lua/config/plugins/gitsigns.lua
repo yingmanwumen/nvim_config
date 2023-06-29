@@ -6,11 +6,11 @@ local function on_attach(buffer)
 
   map("n", "]g", gs.next_hunk, "Next Hunk")
   map("n", "[g", gs.prev_hunk, "Prev Hunk")
-  map("n", "<leader>hp", gs.preview_hunk_inline, "Preview Hunk")
-  map("n", "<leader>hb", gs.toggle_current_line_blame, "Toggle Git Blame")
-  map("n", "<leader>hl", gs.toggle_linehl, "Toggle Line highlight")
-  map("n", "<leader>hd", gs.diffthis, "Git Diff")
-  map("n", "<leader>hs", gs.stage_hunk, "Stage Hunk")
+  map("n", "<leader>gp", gs.preview_hunk_inline, "Preview Hunk")
+  map("n", "<leader>gb", gs.toggle_current_line_blame, "Toggle Git Blame")
+  map("n", "<leader>gl", gs.toggle_linehl, "Toggle Line highlight")
+  map("n", "<leader>gd", gs.diffthis, "Git Diff")
+  map("n", "<leader>gs", gs.stage_hunk, "Stage Hunk")
 end
 
 require("gitsigns").setup({

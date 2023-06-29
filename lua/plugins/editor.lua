@@ -59,7 +59,7 @@ return {
       },
     },
     config = function()
-      require("luasnip.loaders.from_snipmate").lazy_load({ paths = "~/.config/nvim/LuaSnips/" })
+      require("luasnip.loaders.from_lua").lazy_load({ paths = "~/.config/nvim/LuaSnips/" })
       require("luasnip.loaders.from_vscode").lazy_load()
       require("luasnip.loaders.from_snipmate").lazy_load()
     end
@@ -100,8 +100,8 @@ return {
       require("config.plugins.nvim-tree")
     end,
     init = function()
+      -- Start NvimTree when Vim starts with a directory argument.
       vim.cmd [[
-        " Start NvimTree when Vim starts with a directory argument.
         autocmd StdinReadPre * let s:std_in=1
         autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') |
             \ execute 'NvimTreeOpen' argv()[0] | endif
@@ -133,8 +133,8 @@ return {
       { "<leader><leader>k", "<Cmd>HopLineBC<CR>" },
       { "<leader><leader>w", "<Cmd>HopWord<CR>" },
       { "<leader><leader>s", "<Cmd>HopChar1<CR>" },
-      { "<leader><leader>l", "<Cmd>HopWorkCurrentLineAC<CR>" },
-      { "<leader><leader>h", "<Cmd>HopWorkCurrentLineBC<CR>" },
+      { "<leader><leader>l", "<Cmd>HopWordCurrentLineAC<CR>" },
+      { "<leader><leader>h", "<Cmd>HopWordCurrentLineBC<CR>" },
     },
     config = true,
   },
@@ -156,7 +156,7 @@ return {
     keys = {
       { "<C-k>",  "<Cmd>Telescope<CR>" },
       { "<M-f>b", "<Cmd>Telescope buffers<CR>" },
-      { "<M-f>:", "<Cmd>Telescope command_history<CR>" },
+      { "<M-f>.", "<Cmd>Telescope command_history<CR>" },
       { "<M-f>f", "<Cmd>Telescope find_files<CR>" },
       { "<M-f>h", "<Cmd>Telescope oldfiles<CR>" },
       { "<M-f>l", "<Cmd>Telescope current_buffer_fuzzy_find<CR>" },
@@ -172,6 +172,10 @@ return {
     end,
   },
 
+  {
+    "nvim-telescope/telescope-fzf-native.nvim",
+    build = "make",
+  },
 
   {
     "wintermute-cell/gitignore.nvim",
@@ -273,6 +277,10 @@ return {
       "BufReadPost",
       "BufNewFile"
     },
+    keys = {
+      { "<M-f>", "<Cmd>lua require('illuminate').goto_next_reference()<CR>" },
+      { "<M-b>", "<Cmd>lua require('illuminate').goto_prev_reference()<CR>" },
+    },
     init = function()
       vim.api.nvim_create_autocmd({ "ColorScheme" }, {
         pattern = { "*" },
@@ -327,4 +335,54 @@ return {
     cmd = "ColorizerToggle",
     config = true
   },
+
+  {
+    "ellisonleao/glow.nvim",
+    ft = "markdown",
+    config = function()
+      require("glow").setup({})
+      vim.cmd [[
+        nnoremap <leader>g <Cmd>Glow<CR>
+      ]]
+    end
+  },
+
+  {
+    "m4xshen/hardtime.nvim",
+    event = "VeryLazy",
+    config = true,
+    enabled = false,
+  },
+
+  {
+    "tpope/vim-fugitive",
+    cmd = "Git",
+  },
+
+  { "mattn/webapi-vim" },
+
+  {
+    "alpertuna/vim-header",
+    event = {
+      "BufReadPre",
+      "BufNewFile",
+    },
+    cmd = {
+      "AddHeader",
+      "AddMinHeader",
+      "AddMITLicense",
+      "AddApacheLicense",
+      "AddGNULicense",
+      "AddAGPLicense",
+      "AddLGPLLicense",
+      "AddMPLLicense",
+      "AddWTFPLLicense",
+      "AddZlibLicense",
+    },
+    config = function()
+      vim.g.header_field_author = 'ymwm'
+      vim.g.header_field_author_email = 'yingmanwumen@foxmail.com'
+      vim.g.header_auto_add_header = 1
+    end
+  }
 }

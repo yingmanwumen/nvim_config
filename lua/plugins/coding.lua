@@ -16,6 +16,7 @@ return {
       "lvimuser/lsp-inlayhints.nvim",
       "kosayoda/nvim-lightbulb",
       "ray-x/lsp_signature.nvim",
+      "yingmanwumen/litee-calltree.nvim",
     },
     config = function()
       require("config.plugins.lspconfig")
@@ -53,6 +54,7 @@ return {
   {
     "rust-lang/rust.vim",
     ft = "rust",
+    dependencies = "mattn/webapi-vim",
     config = function()
       vim.cmd [[let g:rustfmt_autosave = 1]]
     end
@@ -89,6 +91,31 @@ return {
       vim.cmd [[
         let g:codeium_filetypes = { 'markdown': v:false }
       ]]
+    end
+  },
+
+  {
+    "ldelossa/litee.nvim",
+    config = function()
+      require("litee.lib").setup({})
+    end
+  },
+
+  {
+    "yingmanwumen/litee-calltree.nvim",
+    dependencies = "ldelossa/litee.nvim",
+    config = function()
+      require("litee.calltree").setup({
+        no_hls = true,
+        on_open = "popout",
+        keymaps = {
+          expand = "o",
+          collapse = "f",
+          hover = "K",
+          close = "q",
+        },
+        icon_set_custom = require("config.icons").Kinds
+      })
     end
   },
 }
