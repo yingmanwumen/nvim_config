@@ -18,6 +18,7 @@ set list
 set listchars=tab:<-,trail:.
 set mouse=""
 set nofoldenable
+set nowrap
 set nu
 set scrolloff=3
 set shiftwidth=2
@@ -28,7 +29,6 @@ set termguicolors
 set undodir=$HOME/.config/nvim/.undodir
 set undofile
 set updatetime=100
-set wrap
 
 let g:loaded_netrw = 1
 let g:loaded_netrwPlugin = 1
@@ -43,3 +43,5 @@ set bg=dark
 colorscheme onedark
 " colorscheme solarized
 " colorscheme gruvbox-material
+" colorscheme monokai
+" colorscheme dracula

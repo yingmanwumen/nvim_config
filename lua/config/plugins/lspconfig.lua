@@ -1,3 +1,5 @@
+vim.lsp.set_log_level(vim.log.levels.OFF)
+
 local utils = require("config.plugins.lspconfig_utils")
 local on_attach_default = utils.on_attach_default
 
@@ -8,15 +10,19 @@ local lsps = {
     end
   },
 
-  clangd        = require("config.plugins.clangd"),
-  lua_ls        = require("config.plugins.lua_ls"),
-  pyright       = require("config.plugins.pyright"),
-  rust_analyzer = require("config.plugins.rust_analyzer"),
   bashls        = {
     on_attach = function(client, _)
       client.server_capabilities.documentFormattingProvider = true
     end
   },
+
+  -- loaded by clangd_extensions
+  -- clangd = require("config.plugins.clangd"),
+
+  lua_ls        = require("config.plugins.lua_ls"),
+  pyright       = require("config.plugins.pyright"),
+  rust_analyzer = require("config.plugins.rust_analyzer"),
+
   neocmake      = {},
   gopls         = {},
   jsonls        = {},

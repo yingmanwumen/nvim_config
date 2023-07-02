@@ -3,6 +3,9 @@ return {
   { "nvim-tree/nvim-web-devicons" },
   { "MunifTanjim/nui.nvim" },
   { "maxmx03/solarized.nvim" },
+  { "tanvirtin/monokai.nvim" },
+  { "Mofiqul/dracula.nvim" },
+  { "shaunsingh/nord.nvim" },
 
   {
     "sainnhe/gruvbox-material",

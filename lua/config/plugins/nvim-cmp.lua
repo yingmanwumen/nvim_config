@@ -42,14 +42,15 @@ cmp.setup({
   sorting = {
     priority_weight = 2,
     comparators = {
-      compare.offset,
-      compare.exact,
+      -- compare.exact,
       require('cmp_tabnine.compare'),
-      compare.score,
+      compare.locality,
       compare.recently_used,
-      compare.kind,
-      compare.sort_text,
-      compare.length,
+      compare.score,
+      compare.offset,
+      -- compare.kind,
+      -- compare.sort_text,
+      -- compare.length,
       compare.order,
     }
   }

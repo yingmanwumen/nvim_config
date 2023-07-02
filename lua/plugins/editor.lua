@@ -271,10 +271,6 @@ return {
       "BufReadPost",
       "BufNewFile"
     },
-    keys = {
-      { "<M-f>", "<Cmd>lua require('illuminate').goto_next_reference()<CR>" },
-      { "<M-b>", "<Cmd>lua require('illuminate').goto_prev_reference()<CR>" },
-    },
     init = function()
       vim.api.nvim_create_autocmd({ "ColorScheme" }, {
         pattern = { "*" },

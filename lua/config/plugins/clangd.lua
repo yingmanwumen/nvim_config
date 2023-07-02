@@ -24,6 +24,7 @@ return {
       group    = group,
       buffer   = bufnr,
       callback = function()
+        print("hello")
         format_cpp(bufnr, "google", 2)
         -- if vim.bo.filetype == "c" then
         --   format_c(bufnr, "--linux-style")

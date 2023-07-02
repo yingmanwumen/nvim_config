@@ -143,13 +143,7 @@ return {
         sources = {
           null_ls.builtins.formatting.shfmt,
           null_ls.builtins.diagnostics.flake8,
-          null_ls.builtins.code_actions.gitsigns.with({
-            config = {
-              filter_actions = function(title)
-                return title:lower():match("blame") == nil -- filter out blame actions
-              end,
-            },
-          }),
+          null_ls.builtins.code_actions.gitsigns,
           null_ls.builtins.diagnostics.cpplint.with({
             args = {
               "--filter=-legal/copyright",
@@ -157,7 +151,28 @@ return {
             },
           }),
         },
+        on_attach = function(client, bufnr)
+          require("config.plugins.lspconfig_utils").set_keymappings(client, bufnr)
+        end,
+        on_init = function(client, _)
+          client.offset_encoding = 'utf-16'
+        end
       })
     end,
+    -- enabled = false
   },
+
+  {
+    "p00f/clangd_extensions.nvim",
+    ft = {
+      "c",
+      "cpp",
+    },
+    keys = {
+      { "<leader>ht", "<Cmd>ClangdTypeHierarchy<CR>" }
+    },
+    config = function()
+      require("config.plugins.clangd_extensions")
+    end,
+  }
 }
