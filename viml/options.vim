@@ -41,4 +41,5 @@ set bg=dark
 
 " colorscheme tokyonight
 colorscheme onedark
+" colorscheme solarized
 " colorscheme gruvbox-material

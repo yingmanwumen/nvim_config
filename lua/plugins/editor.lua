@@ -72,19 +72,13 @@ return {
   },
 
   {
-    "echasnovski/mini.comment",
+    "tpope/vim-commentary",
     keys = {
-      { "<C-/>", mode = { 'n', 'x', 'i' } },
+      { "<C-/>", ":Commentary<CR>",     mode = { 'n', 'x' }, silent = true },
+      { "<C-/>", "<Cmd>Commentary<CR>", mode = { 'i' } },
     },
     config = function()
-      require("mini.comment").setup({
-        mappings = {
-          comment      = "<C-/>",
-          comment_line = "<C-/>",
-          textobject   = "<C-/>",
-        }
-      })
-    end,
+    end
   },
 
   {
@@ -129,12 +123,12 @@ return {
   {
     "yingmanwumen/hop.nvim",
     keys = {
-      { "<leader><leader>j", "<Cmd>HopLineAC<CR>" },
-      { "<leader><leader>k", "<Cmd>HopLineBC<CR>" },
-      { "<leader><leader>w", "<Cmd>HopWord<CR>" },
-      { "<leader><leader>s", "<Cmd>HopChar1<CR>" },
-      { "<leader><leader>l", "<Cmd>HopWordCurrentLineAC<CR>" },
-      { "<leader><leader>h", "<Cmd>HopWordCurrentLineBC<CR>" },
+      { "<leader><leader>j", "<Cmd>HopLineAC<CR>",            mode = { "n", "x" }, },
+      { "<leader><leader>k", "<Cmd>HopLineBC<CR>",            mode = { "n", "x" }, },
+      { "<leader><leader>w", "<Cmd>HopWord<CR>",              mode = { "n", "x" }, },
+      { "<leader><leader>s", "<Cmd>HopChar1<CR>",             mode = { "n", "x" }, },
+      { "<leader><leader>l", "<Cmd>HopWordCurrentLineAC<CR>", mode = { "n", "x" }, },
+      { "<leader><leader>h", "<Cmd>HopWordCurrentLineBC<CR>", mode = { "n", "x" }, },
     },
     config = true,
   },
@@ -223,7 +217,7 @@ return {
       "BufNewFile",
     },
     config = function()
-      vim.g.doge_doc_standard_cpp = "doxygen_cpp_comment_slash"
+      -- vim.g.doge_doc_standard_cpp = "doxygen_cpp_comment_slash"
       vim.g.doge_doc_standard_c = "kernel_doc"
     end
   },
@@ -349,8 +343,8 @@ return {
 
   {
     "m4xshen/hardtime.nvim",
-    event = "VeryLazy",
-    config = true,
+    event   = "VeryLazy",
+    config  = true,
     enabled = false,
   },
 
@@ -384,5 +378,24 @@ return {
       vim.g.header_field_author_email = 'yingmanwumen@foxmail.com'
       vim.g.header_auto_add_header = 1
     end
+  },
+
+  {
+    "folke/trouble.nvim",
+    keys = {
+      { "<M-d>", "<Cmd>TroubleToggle<CR>", mode = { "n", "x", "i" }, },
+    },
+    opts = {
+      action_keys = {
+        jump_close = {},
+        toggle_fold = { "za", "zA", "o" },
+        sings = {
+          error = require("config.icons").Dianostics.Error,
+          warning = require("config.icons").Dianostics.Warning,
+          infomation = require("config.icons").Dianostics.Information,
+          other = require("config.icons").Dianostics.Hint,
+        }
+      }
+    },
   }
 }

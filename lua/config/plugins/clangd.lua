@@ -14,6 +14,9 @@ local format_cpp = function(bufnr, style, indent)
   end)
 end
 
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.offsetEncoding = { "utf-16" }
+
 return {
   autoformat = function(bufnr)
     local group = vim.api.nvim_create_augroup("AutoFormat", { clear = false })
@@ -21,12 +24,14 @@ return {
       group    = group,
       buffer   = bufnr,
       callback = function()
-        if vim.bo.filetype == "c" then
-          format_c(bufnr, "--linux-style")
-        else
-          format_cpp(bufnr, "llvm", 4)
-        end
+        format_cpp(bufnr, "google", 2)
+        -- if vim.bo.filetype == "c" then
+        --   format_c(bufnr, "--linux-style")
+        -- else
+        --   format_cpp(bufnr, "llvm", 4)
+        -- end
       end
     })
-  end
+  end,
+  capabilities = capabilities
 }

@@ -2,6 +2,7 @@ return {
   { "navarasu/onedark.nvim" },
   { "nvim-tree/nvim-web-devicons" },
   { "MunifTanjim/nui.nvim" },
+  { "maxmx03/solarized.nvim" },
 
   {
     "sainnhe/gruvbox-material",
@@ -71,6 +72,7 @@ return {
       "rcarriga/nvim-notify",
     },
     config = function()
+      ---@diagnostic disable-next-line: different-requires
       require("config.plugins.noice")
     end,
   },
@@ -144,7 +146,8 @@ return {
 
   {
     "kevinhwang91/nvim-bqf",
-    ft = 'qf'
+    ft = 'qf',
+    config = true,
   },
 
   {
@@ -155,10 +158,29 @@ return {
         return vim.ui.select(...)
       end
       vim.ui.input = function(...)
-        ---@diagnostic disable-next-line: different-requires
         require("lazy").load({ plugins = { "dressing.nvim" } })
         return vim.ui.input(...)
       end
     end,
   },
+
+  {
+    "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate",
+    event = {
+      "BufReadPost",
+      "BufNewFile",
+    },
+    config = function()
+      require("nvim-treesitter.configs").setup({
+        highlight = {
+          enable = true,
+          disable = function(lang, _)
+            if lang == "cmake" then return false end
+            return true
+          end
+        },
+      })
+    end
+  }
 }

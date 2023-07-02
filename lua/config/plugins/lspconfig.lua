@@ -12,8 +12,12 @@ local lsps = {
   lua_ls        = require("config.plugins.lua_ls"),
   pyright       = require("config.plugins.pyright"),
   rust_analyzer = require("config.plugins.rust_analyzer"),
-  bashls        = {},
-  cmake         = {},
+  bashls        = {
+    on_attach = function(client, _)
+      client.server_capabilities.documentFormattingProvider = true
+    end
+  },
+  neocmake      = {},
   gopls         = {},
   jsonls        = {},
   vimls         = {},
@@ -37,12 +41,13 @@ for server, options in pairs(lsps) do
   else
     require("lspconfig")[server].setup({
       on_attach = function(client, bufnr)
-        on_attach_default(client, bufnr, options)
         if type(options.on_attach) == "function" then
           options.on_attach(client, bufnr)
         end
+        on_attach_default(client, bufnr, options)
       end,
       settings = options.settings,
+      capabilities = options.capabilities,
     })
   end
 end

@@ -15,6 +15,7 @@ cmp.setup({
     ["<C-f>"]     = cmp.mapping.scroll_docs(1),
     ["<CR>"]      = cmp.mapping.confirm({ select = true }),
     ["<C-Space>"] = cmp.mapping.complete(),
+    ["<A-c>"]     = cmp.mapping.abort(),
   }),
   sources = cmp.config.sources({
     { name = "buffer" },
@@ -29,6 +30,9 @@ cmp.setup({
   formatting = {
     format = function(_, item)
       local icons = require("config.icons").Kinds
+      if item.menu == "TabNine" then
+        item.menu = "TN"
+      end
       if icons[item.kind] then
         item.kind = icons[item.kind] .. item.kind
       end
