@@ -59,7 +59,10 @@ return {
     ft = "rust",
     dependencies = "mattn/webapi-vim",
     config = function()
-      vim.cmd([[let g:rustfmt_autosave = 1]])
+      vim.cmd([[
+      let g:rustfmt_autosave = 1
+      setlocal mps+=<:>
+      ]])
     end,
   },
 
@@ -145,6 +148,9 @@ return {
           null_ls.builtins.diagnostics.flake8,
           null_ls.builtins.code_actions.gitsigns,
           null_ls.builtins.diagnostics.cpplint.with({
+            filetypes = {
+              "cpp"
+            },
             args = {
               "--filter=-legal/copyright",
               "$FILENAME"

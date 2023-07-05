@@ -37,11 +37,11 @@ let g:loaded_ruby_provider = 0
 let g:loaded_perl_provider = 0
 
 " set bg=light
-set bg=dark
+" set bg=dark
 
 " colorscheme tokyonight
-colorscheme onedark
+" colorscheme onedark
 " colorscheme solarized
 " colorscheme gruvbox-material
 " colorscheme monokai
-" colorscheme dracula
+colorscheme dracula
