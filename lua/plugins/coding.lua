@@ -180,5 +180,10 @@ return {
     config = function()
       require("config.plugins.clangd_extensions")
     end,
+  },
+
+  {
+    "mfussenegger/nvim-lint",
+    enabled = false,
   }
 }

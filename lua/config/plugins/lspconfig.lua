@@ -16,9 +16,9 @@ local lsps = {
     end
   },
 
-  lua_ls        = require("config.plugins.lua_ls"),
-  pyright       = require("config.plugins.pyright"),
-  rust_analyzer = require("config.plugins.rust_analyzer"),
+  lua_ls        = require("config.plugins.lsp.lua_ls"),
+  pyright       = require("config.plugins.lsp.pyright"),
+  rust_analyzer = require("config.plugins.lsp.rust_analyzer"),
 
   neocmake      = {},
   gopls         = {},

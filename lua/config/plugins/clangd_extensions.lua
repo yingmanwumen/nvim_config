@@ -1,4 +1,4 @@
-local clang_config = require("config.plugins.clangd")
+local clang_config = require("config.plugins.lsp.clangd")
 require("clangd_extensions").setup({
   server = {
     capabilities = clang_config.capabilities,
