@@ -33,5 +33,5 @@ return {
       end
     })
   end,
-  capabilities = capabilities
+  capabilities = capabilities,
 }
