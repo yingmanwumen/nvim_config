@@ -88,7 +88,7 @@ return {
       "NvimTreeToggle",
     },
     keys = {
-      { "<M-e>", "<Cmd>NvimTreeToggle<CR>" },
+      { "<M-e>", "<Cmd>NvimTreeToggle<CR>", mode = { "n", "x", "i" } },
     },
     config = function()
       require("config.plugins.nvim-tree")

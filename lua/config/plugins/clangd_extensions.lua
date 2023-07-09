@@ -2,6 +2,11 @@ local clang_config = require("config.plugins.clangd")
 require("clangd_extensions").setup({
   server = {
     capabilities = clang_config.capabilities,
+    filetypes = {
+      "c",
+      "cpp",
+      "cuda",
+    },
     on_attach = function(client, bufnr)
       require("config.plugins.lspconfig_utils").on_attach_default(client, bufnr, clang_config)
     end

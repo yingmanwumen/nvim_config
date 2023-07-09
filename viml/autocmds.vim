@@ -27,6 +27,15 @@ function s:set_markdown_keymap()
   inoremap <C-b> ****<LEFT><LEFT>
 endfunction
 
+func! s:transparent_background()
+    highlight Normal guibg=None ctermbg=None
+    highlight NonText guibg=None ctermbg=None
+    highlight EndOfBuffer guibg=None ctermbg=None
+    highlight SignColumn guibg=None ctermbg=None
+    highlight NvimTreeNormal guibg=None ctermbg=None
+    highlight NvimTreeEndOfBuffer guibg=None ctermbg=None
+endf
+
 augroup MyAutoCmd
   autocmd!
   autocmd BufNewFile,BufRead *.cl  setlocal filetype=opencl
@@ -36,4 +45,5 @@ augroup MyAutoCmd
   autocmd FileType latex,plaintex,tex,markdown call <SID>autosave() | setlocal conceallevel=1 | call <SID>set_indent_width(2, v:true)
   autocmd FileType sh call <SID>set_indent_width(2, v:false)
   autocmd FileType markdown call <SID>set_markdown_keymap()
+  autocmd ColorScheme * call s:transparent_background()
 augroup END
