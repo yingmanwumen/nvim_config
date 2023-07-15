@@ -148,15 +148,18 @@ return {
     "nvim-telescope/telescope.nvim",
     cmd = "Telescope",
     keys = {
-      { "<C-k>",  "<Cmd>Telescope<CR>" },
-      { "<M-f>b", "<Cmd>Telescope buffers<CR>" },
-      { "<M-f>.", "<Cmd>Telescope command_history<CR>" },
-      { "<M-f>f", "<Cmd>Telescope find_files<CR>" },
-      { "<M-f>h", "<Cmd>Telescope oldfiles<CR>" },
-      { "<M-f>l", "<Cmd>Telescope current_buffer_fuzzy_find<CR>" },
-      { "<M-f>m", "<Cmd>Telescope marks<CR>" },
-      { "<M-f>r", "<Cmd>Telescope live_grep<CR>" },
-      { "<M-f>p", "<Cmd>Telescope projects<CR>" },
+      { "<C-k>",   "<Cmd>Telescope<CR>" },
+      { "<M-f>b",  "<Cmd>Telescope buffers<CR>" },
+      { "<M-f>.",  "<Cmd>Telescope command_history<CR>" },
+      { "<M-f>f",  "<Cmd>Telescope find_files<CR>" },
+      { "<M-f>h",  "<Cmd>Telescope oldfiles<CR>" },
+      { "<M-f>l",  "<Cmd>Telescope current_buffer_fuzzy_find<CR>" },
+      { "<M-f>m",  "<Cmd>Telescope marks<CR>" },
+      { "<M-f>r",  "<Cmd>Telescope live_grep<CR>" },
+      { "<M-f>p",  "<Cmd>Telescope projects<CR>" },
+      -- Notice! map ctrl+shift+p to \x1b[80;5u in terminal
+      { "<C-S-P>", "<Cmd>Telescope commands<CR>",                 mode = { "i", "n", "x" }, },
+      { "<M-P>",   "<Cmd>Telescope commands<CR>",                 mode = { "i", "n", "x" }, },
     },
     dependencies = {
       "nvim-telescope/telescope-ui-select.nvim"
@@ -393,5 +396,64 @@ return {
         }
       }
     },
+  },
+
+  {
+    "tomiis4/hypersonic.nvim",
+    event = "CmdlineEnter",
+    cmd = "Hypersonic",
+    config = function()
+      require("hypersonic").setup({})
+    end
+  },
+
+  {
+    "Zeioth/compiler.nvim",
+    cmd = {
+      "CompilerOpen",
+      "CompilerToggleResults",
+    },
+    dependencies = "stevearc/overseer.nvim",
+    config = true,
+  },
+
+  {
+    "stevearc/overseer.nvim",
+    opts = {
+      task_list = {
+        direction = "bottom",
+        min_height = 25,
+        max_height = 25,
+        default_detail = 1,
+        bindings = {
+          ["q"] = function()
+            vim.cmd("OverseerClose")
+          end,
+        },
+      },
+    },
+  },
+
+  {
+    "lewis6991/hover.nvim",
+    keys = {
+      { "K",  function() require("hover").hover() end },
+      { "gk", function() require("hover").hover_select() end },
+    },
+    config = function()
+      require("hover").setup({
+        init = function()
+          require("hover.providers.lsp")
+          require("hover.providers.gh")
+          require("hover.providers.gh_user")
+          require("hover.providers.jira")
+          require("hover.providers.man")
+          require("hover.providers.dictionary")
+        end,
+        preview_opts = {
+          border = "rounded",
+        },
+      })
+    end,
   },
 }

@@ -7,12 +7,6 @@ telescope.setup({
     prompt_prefix         = "❯ ",
     selection_caret       = "➤ ",
     sorting_strategy      = "ascending",
-    layout_strategy       = "center",
-    layout_config         = {
-      center = {
-        anchor = "N",
-      }
-    },
     mappings              = {
       i = {
         ["<ESC>"] = actions.close
@@ -20,18 +14,18 @@ telescope.setup({
     },
   },
   pickers = {
-    buffers                   = { theme = "dropdown", preview = true },
-    builtin                   = { theme = "dropdown", previewer = false },
-    command                   = { theme = "dropdown" },
-    command_history           = { theme = "dropdown" },
-    current_buffer_fuzzy_find = { theme = "dropdown", preview = true },
-    find_files                = { theme = "dropdown", preview = true },
-    live_grep                 = { theme = "dropdown", preview = true },
+    buffers                   = { theme = "ivy", preview = true },
+    builtin                   = { theme = "ivy", previewer = false },
+    commands                  = { theme = "ivy" },
+    command_history           = { theme = "ivy" },
+    current_buffer_fuzzy_find = { theme = "ivy", preview = true },
+    find_files                = { theme = "ivy", preview = true },
+    live_grep                 = { theme = "ivy", preview = true },
     lsp_definitions           = { theme = "cursor", preview = true },
     lsp_references            = { theme = "cursor", preview = true },
-    marks                     = { theme = "dropdown" },
-    oldfiles                  = { theme = "dropdown", preview = true },
-    spell_suggest             = { theme = "dropdown" },
+    marks                     = { theme = "ivy" },
+    oldfiles                  = { theme = "ivy", preview = true },
+    spell_suggest             = { theme = "ivy" },
   },
   extensions = {
     ["ui-select"] = {

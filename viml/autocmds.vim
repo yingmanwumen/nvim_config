@@ -27,14 +27,14 @@ function s:set_markdown_keymap()
   inoremap <C-b> ****<LEFT><LEFT>
 endfunction
 
-func! s:transparent_background()
+function s:transparent_background()
     highlight Normal guibg=None ctermbg=None
     highlight NonText guibg=None ctermbg=None
     highlight EndOfBuffer guibg=None ctermbg=None
     highlight SignColumn guibg=None ctermbg=None
     highlight NvimTreeNormal guibg=None ctermbg=None
     highlight NvimTreeEndOfBuffer guibg=None ctermbg=None
-endf
+endfunction
 
 augroup MyAutoCmd
   autocmd!

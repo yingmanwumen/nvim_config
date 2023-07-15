@@ -11,9 +11,6 @@ local set_autoformat = function(client, bufnr)
 end
 
 local set_keymappings = function(client, bufnr)
-  if client.server_capabilities.hoverProvider then
-    vim.keymap.set('n', 'K', vim.lsp.buf.hover, { buffer = bufnr })
-  end
   vim.keymap.set('n', 'gd', '<Cmd>Telescope lsp_definitions<CR>', { buffer = bufnr })
   vim.keymap.set('n', 'gr', '<Cmd>Telescope lsp_references<CR>', { buffer = bufnr })
   vim.keymap.set('n', 'gi', '<Cmd>Telescope lsp_implementations<CR>', { buffer = bufnr })
