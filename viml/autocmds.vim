@@ -45,5 +45,5 @@ augroup MyAutoCmd
   autocmd FileType latex,plaintex,tex,markdown call <SID>autosave() | setlocal conceallevel=1 | call <SID>set_indent_width(2, v:true)
   autocmd FileType sh call <SID>set_indent_width(2, v:false)
   autocmd FileType markdown call <SID>set_markdown_keymap()
-  autocmd ColorScheme * call s:transparent_background()
+  " autocmd ColorScheme * call s:transparent_background()
 augroup END
