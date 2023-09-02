@@ -16,6 +16,15 @@ local lsps = {
     end
   },
 
+  clangd        = {
+    on_attach = function(client, bufnr)
+      local clang_config = require("config.plugins.lsp.clangd")
+      utils.on_attach_default(client, bufnr, clang_config)
+      -- client.server_capabilities.offsetEncoding = { "utf-16" }
+    end,
+    capabilities = require("config.plugins.lsp.clangd").capabilities,
+  },
+
   lua_ls        = require("config.plugins.lsp.lua_ls"),
   pyright       = require("config.plugins.lsp.pyright"),
   rust_analyzer = require("config.plugins.lsp.rust_analyzer"),

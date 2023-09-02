@@ -18,7 +18,7 @@ set list
 set listchars=tab:<-,trail:.
 set mouse=""
 set nofoldenable
-set nowrap
+" set nowrap
 set nu
 set scrolloff=3
 set shell=/bin/zsh
@@ -40,8 +40,8 @@ let g:loaded_perl_provider = 0
 set bg=light
 " set bg=dark
 
-" colorscheme tokyonight
-colorscheme onedark
+colorscheme tokyonight
+" colorscheme onedark
 " colorscheme solarized
 " colorscheme gruvbox-material
 " colorscheme monokai
