@@ -40,8 +40,8 @@ let g:loaded_perl_provider = 0
 set bg=light
 " set bg=dark
 
-colorscheme tokyonight
-" colorscheme onedark
+" colorscheme tokyonight
+colorscheme onedark
 " colorscheme solarized
 " colorscheme gruvbox-material
 " colorscheme monokai

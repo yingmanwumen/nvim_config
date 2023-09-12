@@ -83,7 +83,9 @@ return {
   {
     "tzachar/cmp-tabnine",
     build = "./install.sh",
-    config = true,
+    config = function()
+      require("config.plugins.cmp-tabnine")
+    end,
   },
 
   {
@@ -147,6 +149,7 @@ return {
           null_ls.builtins.formatting.shfmt,
           null_ls.builtins.diagnostics.flake8,
           null_ls.builtins.code_actions.gitsigns,
+          null_ls.builtins.diagnostics.golangci_lint,
           null_ls.builtins.diagnostics.cpplint.with({
             filetypes = {
               "cpp"
