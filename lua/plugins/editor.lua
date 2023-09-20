@@ -429,4 +429,12 @@ return {
       })
     end,
   },
+
+  {
+    "dstein64/nvim-scrollview",
+    event  = "VeryLazy",
+    config = function()
+      require("config.plugins.nvim-scrollvim")
+    end
+  }
 }
