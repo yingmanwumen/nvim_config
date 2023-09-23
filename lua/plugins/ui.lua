@@ -6,6 +6,7 @@ return {
   { "tanvirtin/monokai.nvim" },
   { "Mofiqul/dracula.nvim" },
   { "shaunsingh/nord.nvim" },
+  { "projekt0n/github-nvim-theme" },
 
   {
     "sainnhe/gruvbox-material",

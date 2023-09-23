@@ -41,8 +41,9 @@ set bg=light
 " set bg=dark
 
 " colorscheme tokyonight
-colorscheme onedark
+" colorscheme onedark
 " colorscheme solarized
 " colorscheme gruvbox-material
 " colorscheme monokai
 " colorscheme dracula
+colorscheme github_light
