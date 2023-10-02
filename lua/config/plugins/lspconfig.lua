@@ -27,10 +27,14 @@ local lsps = {
 
   lua_ls        = require("config.plugins.lsp.lua_ls"),
   pyright       = require("config.plugins.lsp.pyright"),
-  rust_analyzer = require("config.plugins.lsp.rust_analyzer"),
 
+  -- rust_analyzer = require("config.plugins.lsp.rust_analyzer"),
+
+  gopls         = require("config.plugins.lsp.go"),
+
+  -- gopls = {},
+  rust_analyzer = {},
   neocmake      = {},
-  gopls         = {},
   jsonls        = {},
   vimls         = {},
   yamlls        = {},
@@ -69,3 +73,5 @@ for type, icon in pairs(signs) do
   local hl = "DiagnosticSign" .. type
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
+
+-- vim.api.nvim_set_hl(0, "LspInlayHint", { link = "Comment" })

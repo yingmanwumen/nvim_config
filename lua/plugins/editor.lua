@@ -436,5 +436,5 @@ return {
     config = function()
       require("config.plugins.nvim-scrollvim")
     end
-  }
+  },
 }

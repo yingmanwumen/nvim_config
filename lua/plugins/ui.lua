@@ -101,18 +101,10 @@ return {
       "BufNewFile",
     },
     config = function()
-      require("indent_blankline").setup({
-        filetype_exclude = {
-          "help",
-          "dashboard",
-          "Trouble",
-          "lazy",
-          "NvimTree",
-          "Outline",
-          "mason",
-        },
-        show_trailing_blankline_indent = false,
-        show_current_context = false,
+      require("ibl").setup({
+        scope = {
+          enabled = false,
+        }
       })
     end
   },

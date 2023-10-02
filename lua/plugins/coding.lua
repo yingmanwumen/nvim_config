@@ -13,7 +13,7 @@ return {
     dependencies = {
       "hrsh7th/cmp-nvim-lsp",
       "williamboman/mason-lspconfig.nvim",
-      "lvimuser/lsp-inlayhints.nvim",
+      -- "lvimuser/lsp-inlayhints.nvim",
       "kosayoda/nvim-lightbulb",
       "ray-x/lsp_signature.nvim",
       "yingmanwumen/litee-calltree.nvim",
@@ -188,5 +188,24 @@ return {
   {
     "mfussenegger/nvim-lint",
     enabled = false,
-  }
+  },
+
+  {
+    'Wansmer/symbol-usage.nvim',
+    event = 'LspAttach', -- need run before LspAttach if you use nvim 0.9. On 0.10 use 'LspAttach'
+    config = function()
+      require('symbol-usage').setup({
+        vt_position = 'end_of_line',
+        -- vt_position = 'textwidth',
+      })
+    end
+  },
+
+  {
+    "ray-x/go.nvim",
+    ft = {
+      "go",
+      "gomod"
+    },
+  },
 }

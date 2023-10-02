@@ -9,7 +9,7 @@ require("dashboard").setup({
     project     = { enable = false },
     shortcut    = {
       {
-        icon    = "💤",
+        icon    = "🔧",
         icon_hl = "@variable",
         desc    = "Lazy",
         group   = "Label",
@@ -17,7 +17,15 @@ require("dashboard").setup({
         key     = "L",
       },
       {
-        icon    = "🪨",
+        icon    = "📝",
+        icon_hl = "@variable",
+        desc    = "Update Plugins",
+        group   = "Label",
+        action  = "Lazy update",
+        key     = "U",
+      },
+      {
+        icon    = "📚",
         icon_hl = "@variable",
         desc    = "Mason",
         group   = "Label",

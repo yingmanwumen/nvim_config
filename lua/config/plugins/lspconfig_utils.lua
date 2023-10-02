@@ -10,7 +10,7 @@ local set_autoformat = function(client, bufnr)
   end
 end
 
-local set_keymappings = function(client, bufnr)
+local set_keymappings = function(_, bufnr)
   vim.keymap.set('n', 'gd', '<Cmd>Telescope lsp_definitions<CR>', { buffer = bufnr })
   vim.keymap.set('n', 'gr', '<Cmd>Telescope lsp_references<CR>', { buffer = bufnr })
   vim.keymap.set('n', 'gi', '<Cmd>Telescope lsp_implementations<CR>', { buffer = bufnr })
@@ -34,19 +34,19 @@ local set_codelens = function(client, bufnr)
   end
 end
 
-local set_inlayhints = function(client, bufnr)
-  require("lsp-inlayhints").on_attach(client, bufnr)
+local set_inlayhints = function(_, bufnr)
+  vim.lsp.inlay_hint(bufnr, true)
 end
 
 local on_attach_default = function(client, bufnr, options)
   set_keymappings(client, bufnr)
   set_codelens(client, bufnr)
+  set_inlayhints(client, bufnr)
   if options ~= nil and type(options.autoformat) == "function" then
     options.autoformat(bufnr)
   else
     set_autoformat(client, bufnr)
   end
-  set_inlayhints(client, bufnr)
   if client.server_capabilities.documentSymbolProvider then
     require("nvim-navbuddy").attach(client, bufnr)
   end
