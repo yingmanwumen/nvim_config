@@ -16,6 +16,7 @@ end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.offsetEncoding = { "utf-16" }
+capabilities.documentFormattingProvider = false
 
 return {
   autoformat = function(bufnr)

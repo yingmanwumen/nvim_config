@@ -43,7 +43,7 @@ return {
     },
     config = function()
       require("config.plugins.bufferline")
-    end
+    end,
   },
 
   {

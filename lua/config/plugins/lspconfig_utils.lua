@@ -44,11 +44,13 @@ local on_attach_default = function(client, bufnr, options)
   set_inlayhints(client, bufnr)
   if options ~= nil and type(options.autoformat) == "function" then
     options.autoformat(bufnr)
+    vim.lsp.buf.format = function() end
   else
     set_autoformat(client, bufnr)
   end
   if client.server_capabilities.documentSymbolProvider then
     require("nvim-navbuddy").attach(client, bufnr)
+    require("nvim-navic").attach(client, bufnr)
   end
 end
 

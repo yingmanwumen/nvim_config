@@ -1,5 +1,6 @@
-local cmp     = require("cmp")
-local compare = require("cmp.config.compare")
+local cmp       = require("cmp")
+local compare   = require("cmp.config.compare")
+local autopairs = require("nvim-autopairs.completion.cmp")
 
 cmp.setup({
   completion = { completeopt = "menu,menuone,noinsert" },
@@ -54,3 +55,8 @@ cmp.setup({
     }
   }
 })
+
+cmp.event:on(
+  'confirm_done',
+  autopairs.on_confirm_done()
+)

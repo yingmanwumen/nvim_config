@@ -31,8 +31,8 @@ set undodir=$HOME/.config/nvim/.undodir
 set undofile
 set updatetime=100
 
-let g:loaded_netrw = 1
-let g:loaded_netrwPlugin = 1
+" let g:loaded_netrw = 1
+" let g:loaded_netrwPlugin = 1
 
 let g:loaded_ruby_provider = 0
 let g:loaded_perl_provider = 0

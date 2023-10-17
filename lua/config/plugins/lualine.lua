@@ -7,6 +7,15 @@ local function macro_recording()
   return ""
 end
 
+local function get_navic()
+  ---@diagnostic disable-next-line: different-requires
+  local navic = require("nvim-navic")
+  if navic.is_available() then
+    return navic.get_location()
+  end
+  return ""
+end
+
 require("lualine").setup({
   options = {
     globalstatus = true,
@@ -21,7 +30,8 @@ require("lualine").setup({
   },
   sections = {
     lualine_c = {
-      "filename",
+      -- "filename",
+      get_navic,
       macro_recording,
     }
   }

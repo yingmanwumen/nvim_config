@@ -20,7 +20,6 @@ local lsps = {
     on_attach = function(client, bufnr)
       local clang_config = require("config.plugins.lsp.clangd")
       utils.on_attach_default(client, bufnr, clang_config)
-      -- client.server_capabilities.offsetEncoding = { "utf-16" }
     end,
     capabilities = require("config.plugins.lsp.clangd").capabilities,
   },
@@ -30,9 +29,9 @@ local lsps = {
 
   -- rust_analyzer = require("config.plugins.lsp.rust_analyzer"),
 
-  gopls         = require("config.plugins.lsp.go"),
+  -- gopls         = require("config.plugins.lsp.go"),
 
-  -- gopls = {},
+  gopls         = {},
   rust_analyzer = {},
   neocmake      = {},
   jsonls        = {},

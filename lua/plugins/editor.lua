@@ -437,4 +437,43 @@ return {
       require("config.plugins.nvim-scrollvim")
     end
   },
+
+  {
+    "SmiteshP/nvim-navic",
+    config = function()
+      local navic = require("nvim-navic")
+      navic.setup {
+        icons = require("config.icons").Kinds,
+        highlight = false,
+        separator = " > ",
+        depth_limit = 0,
+        depth_limit_indicator = "..",
+        safe_output = true,
+        lazy_update_context = false,
+        click = false
+      }
+    end,
+  },
+
+  {
+    "SmiteshP/nvim-navbuddy",
+    dependencies = "SmiteshP/nvim-navic",
+    cmd = "Navbuddy",
+    keys = {
+      { "gn", "<Cmd>Navbuddy<CR>" },
+    },
+    config = function()
+      require("nvim-navbuddy").setup({
+        icons = require("config.icons").Kinds,
+      })
+    end,
+  },
+
+  {
+    'windwp/nvim-autopairs',
+    event = "InsertEnter",
+    config = function()
+      require("nvim-autopairs").setup({})
+    end
+  },
 }

@@ -1,5 +1,4 @@
 return {
-  { "SmiteshP/nvim-navic" },
   { "antoinemadec/FixCursorHold.nvim" },
   { "simrat39/rust-tools.nvim" },
   { "williamboman/mason-lspconfig.nvim" },
@@ -63,20 +62,6 @@ return {
       let g:rustfmt_autosave = 1
       setlocal mps+=<:>
       ]])
-    end,
-  },
-
-  {
-    "SmiteshP/nvim-navbuddy",
-    dependencies = "SmiteshP/nvim-navic",
-    cmd = "Navbuddy",
-    keys = {
-      { "gn", "<Cmd>Navbuddy<CR>" },
-    },
-    config = function()
-      require("nvim-navbuddy").setup({
-        icons = require("config.icons").Kinds,
-      })
     end,
   },
 
@@ -150,15 +135,15 @@ return {
           null_ls.builtins.diagnostics.flake8,
           null_ls.builtins.code_actions.gitsigns,
           null_ls.builtins.diagnostics.golangci_lint,
-          null_ls.builtins.diagnostics.cpplint.with({
-            filetypes = {
-              "cpp"
-            },
-            args = {
-              "--filter=-legal/copyright",
-              "$FILENAME"
-            },
-          }),
+          -- null_ls.builtins.diagnostics.cpplint.with({
+          --   filetypes = {
+          --     "cpp"
+          --   },
+          --   args = {
+          --     "--filter=-legal/copyright",
+          --     "$FILENAME"
+          --   },
+          -- }),
         },
         on_attach = function(client, bufnr)
           require("config.plugins.lspconfig_utils").set_keymappings(client, bufnr)
@@ -207,5 +192,22 @@ return {
       "go",
       "gomod"
     },
+    config = function()
+      require("go").setup({
+        lsp_cfg = true,
+        lsp_inlay_hints = {
+          enable = true,
+          only_current_line = true,
+          only_current_line_autocmd = nil
+        }
+      })
+      local config = require("go.lsp").config()
+      local utils = require("config.plugins.lspconfig_utils")
+      config.settings.gopls.staticcheck = false
+      require('lspconfig').gopls.setup({
+        settings = config.settings,
+        on_attach = utils.on_attach_default,
+      })
+    end
   },
 }
