@@ -2,6 +2,7 @@ nnoremap <M-w>    <C-w>
 nnoremap <silent> <M-q> :bd %<CR>
 nnoremap <silent> <M-s> :w<CR>
 nnoremap <silent> Q     :q<CR>
+nnoremap <C-\>    <C-w>v
 
 nmap <silent> <M-w>= <M-w>><M-w>
 nmap <silent> <M-w>- <M-w><<M-w>
