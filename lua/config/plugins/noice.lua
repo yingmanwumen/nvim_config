@@ -3,6 +3,7 @@ require("noice").setup({
     long_message_to_split = true,
     command_palette       = true,
     bottom_search         = true,
+    lsp_doc_border        = true,
   },
   routes = {
     {
@@ -22,9 +23,32 @@ require("noice").setup({
         end,
       },
       opts = { skip = true },
+    },
+    {
+      filter = {
+        find = "-32603: Invalid offset",
+      },
+      opts = { skip = true },
+    },
+    {
+      filter = {
+        find = "code_name = InternalError",
+      },
+      opts = { skip = true },
+
     }
   },
   lsp = {
-    signature = { enabled = false }
+    signature = { enabled = false },
+    documentation = {
+      view = "hover",
+      opts = {
+        lang = "markdown",
+        win_options = { concealcursor = "n", conceallevel = 0 },
+      }
+    },
+    hover = {
+      silent = true,
+    }
   }
 })

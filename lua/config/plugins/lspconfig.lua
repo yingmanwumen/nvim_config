@@ -74,3 +74,7 @@ for type, icon in pairs(signs) do
 end
 
 -- vim.api.nvim_set_hl(0, "LspInlayHint", { link = "Comment" })
+
+-- vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+--   border = "single",
+-- })

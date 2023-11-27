@@ -97,6 +97,7 @@ return {
         let g:codeium_filetypes = { 'markdown': v:false }
       ]])
     end,
+    enabled = false,
   },
 
   {

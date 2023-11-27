@@ -22,6 +22,7 @@ local set_keymappings = function(_, bufnr)
   vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, { buffer = bufnr })
   vim.keymap.set('n', '<leader>f', vim.lsp.buf.format, { buffer = bufnr })
   vim.keymap.set('n', '<leader>cl', vim.lsp.codelens.run, { buffer = bufnr })
+  -- vim.keymap.set('n', 'K', vim.lsp.buf.hover, { buffer = bufnr })
 end
 
 local set_codelens = function(client, bufnr)

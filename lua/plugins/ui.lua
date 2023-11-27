@@ -65,7 +65,7 @@ return {
         render = "minimal",
         top_down = false,
         -- set transparency
-        background_colour = "#000000",
+        -- background_colour = "#000000",
       })
     end
   },
