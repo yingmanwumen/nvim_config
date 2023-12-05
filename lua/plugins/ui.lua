@@ -7,6 +7,8 @@ return {
   { "Mofiqul/dracula.nvim" },
   { "shaunsingh/nord.nvim" },
   { "projekt0n/github-nvim-theme" },
+  { "ayu-theme/ayu-vim" },
+  { "NLKNguyen/papercolor-theme" },
 
   {
     "sainnhe/gruvbox-material",
