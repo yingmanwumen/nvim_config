@@ -23,5 +23,6 @@ require("gitsigns").setup({
     delete       = { text = "" },
     topdelete    = { text = "" },
   },
+  current_line_blame = true,
   on_attach = on_attach
 })

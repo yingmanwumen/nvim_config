@@ -7,7 +7,7 @@ return {
   { "Mofiqul/dracula.nvim" },
   { "shaunsingh/nord.nvim" },
   { "projekt0n/github-nvim-theme" },
-  { "ayu-theme/ayu-vim" },
+  { "Luxed/ayu-vim" },
   { "NLKNguyen/papercolor-theme" },
 
   {
@@ -67,7 +67,7 @@ return {
         render = "minimal",
         top_down = false,
         -- set transparency
-        -- background_colour = "#000000",
+        background_colour = "#000000",
       })
     end
   },
@@ -163,6 +163,8 @@ return {
       end
     end,
   },
+
+  { "nvim-treesitter/nvim-treesitter-textobjects" },
 
   {
     "nvim-treesitter/nvim-treesitter",

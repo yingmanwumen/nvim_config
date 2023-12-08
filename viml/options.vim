@@ -36,35 +36,3 @@ set updatetime=100
 
 let g:loaded_ruby_provider = 0
 let g:loaded_perl_provider = 0
-
-let ayucolor="light"
-
-set bg=light
-" set bg=dark
-
-" colorscheme tokyonight
-" colorscheme onedark
-" colorscheme solarized
-" colorscheme gruvbox-material
-" colorscheme monokai
-" colorscheme dracula
-" colorscheme github_light
-" colorscheme ayu
-colorscheme PaperColor
-
-function s:set_transparency()
-  highlight Normal ctermbg=none guibg=none
-  highlight NonText ctermbg=none guibg=none
-  highlight LineNr ctermbg=none guibg=none
-  highlight SignColumn ctermbg=none guibg=none
-  highlight VertSplit ctermbg=none guibg=none
-
-  highlight NoiceCmdlinePopupBorder ctermbg=none guibg=none
-  highlight NoiceCmdlinePopupTitle ctermbg=none guibg=none
-  highlight Pmenu ctermbg=none guibg=none
-
-  highlight link FloatBorder Normal
-  highlight link NormalFloat Normal
-endfunction
-
-call <SID>set_transparency()

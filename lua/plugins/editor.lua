@@ -1,14 +1,33 @@
 return {
   { "honza/vim-snippets" },
+
+  { "nvim-lua/plenary.nvim" },
+  { "nvim-telescope/telescope-ui-select.nvim" },
+
   { "hrsh7th/cmp-buffer" },
   { "hrsh7th/cmp-nvim-lsp" },
   { "hrsh7th/cmp-nvim-lua" },
-  { "hrsh7th/cmp-omni" },
   { "hrsh7th/cmp-path" },
-  { "nvim-lua/plenary.nvim" },
-  { "nvim-telescope/telescope-ui-select.nvim" },
+  { "hrsh7th/cmp-omni" },
   { "petertriho/cmp-git" },
   { "saadparwaiz1/cmp_luasnip" },
+  { "amarakon/nvim-cmp-buffer-lines" },
+
+  {
+    "tzachar/cmp-tabnine",
+    build = "./install.sh",
+    config = function()
+      require("config.plugins.cmp-tabnine")
+    end,
+  },
+
+  {
+    "paopaol/cmp-doxygen",
+    requires = {
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-treesitter/nvim-treesitter-textobjects"
+    }
+  },
 
   {
     "hrsh7th/nvim-cmp",
@@ -21,10 +40,33 @@ return {
       "petertriho/cmp-git",
       "saadparwaiz1/cmp_luasnip",
       "tzachar/cmp-tabnine",
+      "hrsh7th/cmp-omni",
+      "saecki/crates.nvim",
+      "amarakon/nvim-cmp-buffer-lines",
+      "paopaol/cmp-doxygen",
     },
     config = function()
       require("config.plugins.nvim-cmp")
     end
+  },
+
+  {
+    'saecki/crates.nvim',
+    -- event = { "BufRead Cargo.toml" },
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    config = function()
+      require('crates').setup({
+        null_ls = {
+          enabled = true,
+          name = "crates.io",
+        },
+        src = {
+          cmp = {
+            enabled = true
+          }
+        }
+      })
+    end,
   },
 
   {
@@ -459,4 +501,9 @@ return {
       require("nvim-autopairs").setup({})
     end,
   },
+
+  {
+    'weilbith/nvim-code-action-menu',
+    cmd = "CodeActionMenu",
+  }
 }

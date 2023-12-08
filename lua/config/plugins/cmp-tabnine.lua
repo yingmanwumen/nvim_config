@@ -13,3 +13,5 @@ tabnine:setup({
   },
   show_prediction_strength = true
 })
+
+-- vim.api.nvim_set_hl(0, "CmpItemKindTabNine", { fg = "#6CC644" })

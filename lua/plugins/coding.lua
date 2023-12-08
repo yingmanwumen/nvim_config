@@ -70,14 +70,6 @@ return {
   },
 
   {
-    "tzachar/cmp-tabnine",
-    build = "./install.sh",
-    config = function()
-      require("config.plugins.cmp-tabnine")
-    end,
-  },
-
-  {
     "Exafunction/codeium.vim",
     event = "InsertEnter",
     keys = {
