@@ -4,11 +4,11 @@ local utils = require("config.plugins.lspconfig_utils")
 local on_attach_default = utils.on_attach_default
 
 local lsps = {
-  sourcery      = {
-    on_attach = function(client, _)
-      client.server_capabilities.hoverProvider = false
-    end
-  },
+  -- sourcery      = {
+  --   on_attach = function(client, _)
+  --     client.server_capabilities.hoverProvider = false
+  --   end
+  -- },
 
   bashls        = {
     on_attach = function(client, _)
@@ -22,6 +22,7 @@ local lsps = {
       utils.on_attach_default(client, bufnr, clang_config)
     end,
     capabilities = require("config.plugins.lsp.clangd").capabilities,
+    settings = require("config.plugins.lsp.clangd").settings,
   },
 
   lua_ls        = require("config.plugins.lsp.lua_ls"),
@@ -37,6 +38,7 @@ local lsps = {
   jsonls        = {},
   vimls         = {},
   yamlls        = {},
+  -- lemminx       = {},
 }
 
 local server_list = {}

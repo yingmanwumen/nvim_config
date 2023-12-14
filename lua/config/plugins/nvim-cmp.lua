@@ -41,7 +41,7 @@ cmp.setup({
     { name = "omni" },
     { name = "doxygen" },
     { name = "crates" },
-    { name = "buffer-lines" },
+    -- { name = "buffer-lines" },
   }),
   formatting = {
     format = function(_, item)

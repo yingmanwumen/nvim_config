@@ -16,6 +16,10 @@ local function get_navic()
   return ""
 end
 
+local function datetime()
+  return os.date("%m-%d %H:%M:%S")
+end
+
 require("lualine").setup({
   options = {
     globalstatus = true,
@@ -30,9 +34,14 @@ require("lualine").setup({
   },
   sections = {
     lualine_c = {
-      -- "filename",
+      "filename",
       get_navic,
       macro_recording,
+    },
+    lualine_x = {
+      datetime,
+      "encoding",
+      "filetype",
     }
   }
 })

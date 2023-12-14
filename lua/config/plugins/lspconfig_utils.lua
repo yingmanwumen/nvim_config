@@ -36,7 +36,7 @@ local set_codelens = function(client, bufnr)
 end
 
 local set_inlayhints = function(_, bufnr)
-  vim.lsp.inlay_hint(bufnr, true)
+  vim.lsp.inlay_hint.enable(bufnr, true)
 end
 
 local on_attach_default = function(client, bufnr, options)

@@ -85,11 +85,11 @@ return {
       },
     },
     config = function()
-      vim.cmd([[
-        let g:codeium_filetypes = { 'markdown': v:false }
-      ]])
+      -- vim.cmd([[
+      --   let g:codeium_filetypes = { 'markdown': v:false }
+      -- ]])
     end,
-    enabled = false,
+    -- enabled = false,
   },
 
   {

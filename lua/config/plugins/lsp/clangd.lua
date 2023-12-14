@@ -19,20 +19,32 @@ capabilities.offsetEncoding = { "utf-16" }
 capabilities.documentFormattingProvider = false
 
 return {
-  autoformat = function(bufnr)
-    local group = vim.api.nvim_create_augroup("AutoFormat", { clear = false })
-    vim.api.nvim_create_autocmd("BufWritePre", {
-      group    = group,
-      buffer   = bufnr,
-      callback = function()
-        format_cpp(bufnr, "google", 2)
-        -- if vim.bo.filetype == "c" then
-        -- format_c(bufnr, "--linux-style")
-        -- else
-        --   format_cpp(bufnr, "llvm", 4)
-        -- end
-      end
-    })
-  end,
+  -- autoformat = function(bufnr)
+  --   local group = vim.api.nvim_create_augroup("AutoFormat", { clear = false })
+  --   vim.api.nvim_create_autocmd("BufWritePre", {
+  --     group    = group,
+  --     buffer   = bufnr,
+  --     callback = function()
+  --       format_cpp(bufnr, "google", 2)
+  --       -- if vim.bo.filetype == "c" then
+  --       -- format_c(bufnr, "--linux-style")
+  --       -- else
+  --       --   format_cpp(bufnr, "llvm", 4)
+  --       -- end
+  --     end
+  --   })
+  -- end,
   capabilities = capabilities,
+  settings = {
+    clangd = {
+      arguments = {
+        "--all-scopes-completion",
+        "--background-index",
+        "--clang-tidy",
+        "--completion-style=detailed",
+        "--fallback-style=google",
+        "--function-arg-placeholders",
+      }
+    }
+  }
 }

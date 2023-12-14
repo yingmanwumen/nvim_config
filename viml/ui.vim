@@ -2,8 +2,8 @@
 " let ayucolor="dark"
 let ayucolor="mirage"
 
-" set bg=light
-set bg=dark
+set bg=light
+" set bg=dark
 
 " colorscheme tokyonight
 " colorscheme onedark
@@ -11,8 +11,8 @@ set bg=dark
 " colorscheme gruvbox-material
 " colorscheme monokai
 " colorscheme dracula
-" colorscheme github_light
-colorscheme ayu
+colorscheme github_light
+" colorscheme ayu
 " colorscheme PaperColor
 
 function s:set_transparency()
@@ -34,8 +34,6 @@ let s:bold = " cterm=bold gui=bold "
 let s:italic = " cterm=italic gui=italic "
 let s:italic_bold = " cterm=italic,bold gui=italic,bold "
 
-exec 'hi WildMenu' . s:bold
-
 exec 'hi @interface' . s:italic
 exec 'hi @property' . s:italic
 exec 'hi @parameter' . s:italic
@@ -55,15 +53,18 @@ exec 'hi SpecialComment' . s:bold
 exec 'hi Todo' . s:bold
 exec 'hi Title' . s:bold
 exec 'hi Special' . s:bold
+exec 'hi WildMenu' . s:bold
 
-hi clear Keyword
-hi link Keyword Statement
-
-hi clear @conditional
-hi link @conditional Conditional
+hi! link Keyword Statement
+hi! link @conditional Conditional
 
 exec 'hi LspCodeLens' . s:italic
 exec 'hi LspDiagnosticsDefaultWarning' . s:bold
 exec 'hi LspDiagnosticsDefaultInformation' . s:bold
 exec 'hi LspDiagnosticsDefaultHint' . s:bold
 
+"""""""
+" zsh "
+"""""""
+hi link zshFunction Function
+hi link zshVariableDef Define
