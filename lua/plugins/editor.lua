@@ -227,6 +227,7 @@ return {
     cmd = "ToggleTerm",
     keys = {
       { "<M-=>", "<Cmd>ToggleTerm size=25<CR>i<C-w>" },
+      { "<C-`>", "<Cmd>ToggleTerm size=25<CR>i<C-w>" },
     },
     config = function(...)
       require("toggleterm").setup({
@@ -505,5 +506,18 @@ return {
   {
     'weilbith/nvim-code-action-menu',
     cmd = "CodeActionMenu",
-  }
+  },
+
+  {
+    "folke/neoconf.nvim",
+    event = "VeryLazy",
+    config = function()
+      require("neoconf").setup({})
+    end,
+  },
+
+  {
+    "folke/neodev.nvim",
+    config = true,
+  },
 }

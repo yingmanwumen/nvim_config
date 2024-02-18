@@ -32,6 +32,7 @@ local lsps = {
 
   -- gopls         = require("config.plugins.lsp.go"),
 
+  dotls         = {},
   gopls         = {},
   rust_analyzer = {},
   neocmake      = {},
@@ -73,6 +74,24 @@ local signs = require("config.icons").Dianostics
 for type, icon in pairs(signs) do
   local hl = "DiagnosticSign" .. type
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+end
+
+local local_lsps = {
+  lsp_name = {
+    cmd = { "command" },
+    filetypes = { "filetypes" },
+    root_dir = function()
+      return vim.fn.getcwd()
+    end,
+    settings = {}
+  }
+}
+
+for server, options in pairs(local_lsps) do
+  require("lspconfig.configs")[server] = {
+    default_config = options
+  }
+  require('lspconfig')[server].setup({})
 end
 
 -- vim.api.nvim_set_hl(0, "LspInlayHint", { link = "Comment" })

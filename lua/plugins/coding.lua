@@ -12,10 +12,10 @@ return {
     dependencies = {
       "hrsh7th/cmp-nvim-lsp",
       "williamboman/mason-lspconfig.nvim",
-      -- "lvimuser/lsp-inlayhints.nvim",
       "kosayoda/nvim-lightbulb",
       "ray-x/lsp_signature.nvim",
-      "yingmanwumen/litee-calltree.nvim",
+      "folke/neoconf.nvim",
+      "folke/neodev.nvim",
     },
     config = function()
       require("config.plugins.lspconfig")
@@ -97,25 +97,6 @@ return {
     config = function()
       require("litee.lib").setup({})
     end,
-  },
-
-  {
-    "yingmanwumen/litee-calltree.nvim",
-    dependencies = "ldelossa/litee.nvim",
-    config = function()
-      require("litee.calltree").setup({
-        no_hls = true,
-        on_open = "popout",
-        keymaps = {
-          expand = "o",
-          collapse = "f",
-          hover = "K",
-          close = "q",
-        },
-        icon_set_custom = require("config.icons").Kinds,
-      })
-    end,
-    enabled = false,
   },
 
   {

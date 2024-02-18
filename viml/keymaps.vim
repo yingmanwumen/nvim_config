@@ -12,4 +12,5 @@ vnoremap < <gv
 vnoremap > >gv
 
 tnoremap <silent> <M--> <C-\><C-n>:q<CR>
+tnoremap <silent> <C-`> <C-\><C-n>:q<CR>
 tnoremap <silent> <M-q> <C-\><C-n>
