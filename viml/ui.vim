@@ -33,6 +33,7 @@ endfunction
 let s:bold = " cterm=bold gui=bold "
 let s:italic = " cterm=italic gui=italic "
 let s:italic_bold = " cterm=italic,bold gui=italic,bold "
+let s:underline = " cterm=underline gui=underline"
 
 exec 'hi @interface' . s:italic
 exec 'hi @property' . s:italic
@@ -63,8 +64,19 @@ exec 'hi LspDiagnosticsDefaultWarning' . s:bold
 exec 'hi LspDiagnosticsDefaultInformation' . s:bold
 exec 'hi LspDiagnosticsDefaultHint' . s:bold
 
+""""""""""""""""
+" Rust Support "
+""""""""""""""""
+
+exec 'hi! @lsp.mod.mutable.rust' . s:underline
+
 """""""
 " zsh "
 """""""
 hi link zshFunction Function
 hi link zshVariableDef Define
+
+"""""""""""""""
+" Lsp Support "
+"""""""""""""""
+hi! LspInlayHint cterm=nocombine gui=nocombine  guifg=#a4a5a6 guibg=None

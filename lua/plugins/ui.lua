@@ -31,8 +31,8 @@ return {
       "BufNewFile"
     },
     keys = {
-      { "<M-j>", "<Cmd>BufferLineCyclePrev<CR>" },
-      { "<M-k>", "<Cmd>BufferLineCycleNext<CR>" },
+      { "<M-h>", "<Cmd>BufferLineCyclePrev<CR>" },
+      { "<M-l>", "<Cmd>BufferLineCycleNext<CR>" },
       { "<M-1>", "<Cmd>BufferLineGoToBuffer 1<CR>" },
       { "<M-2>", "<Cmd>BufferLineGoToBuffer 2<CR>" },
       { "<M-3>", "<Cmd>BufferLineGoToBuffer 3<CR>" },
