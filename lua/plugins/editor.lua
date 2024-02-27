@@ -269,8 +269,8 @@ return {
     },
     config = function()
       vim.cmd [[ filetype plugin indent on ]]
-      -- vim.g.doge_doc_standard_cpp = "doxygen_cpp_comment_slash"
-      vim.g.doge_doc_standard_c = "kernel_doc"
+      vim.g.doge_doc_standard_cpp = "doxygen_cpp_comment_slash"
+      vim.g.doge_doc_standard_c = "doxygen_cpp_comment_slash"
     end
   },
 
