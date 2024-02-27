@@ -10,7 +10,8 @@ end
 local format_cpp = function(bufnr, style, indent)
   style = "-style='{BasedOnStyle: " .. style .. ", IndentWidth: " .. indent .. "}'"
   format_buffer(bufnr, function(file)
-    vim.fn.execute("! clang-format -i " .. style .. " " .. file)
+    -- vim.fn.execute("! clang-format -i " .. style .. " " .. file)
+    vim.fn.system("clang-format -i " .. style .. " " .. file)
   end)
 end
 

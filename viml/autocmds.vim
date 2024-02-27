@@ -1,9 +1,9 @@
 augroup fcitx_group
   autocmd!
-  autocmd InsertLeave * :silent !fcitx5-remote -c
-  autocmd BufCreate *   :silent !fcitx5-remote -c
-  autocmd BufEnter *    :silent !fcitx5-remote -c
-  autocmd BufLeave *    :silent !fcitx5-remote -c
+  autocmd InsertLeave * silent lua vim.fn.system("fcitx5-remote -c")
+  autocmd BufCreate *   silent lua vim.fn.system("fcitx5-remote -c")
+  autocmd BufEnter *    silent lua vim.fn.system("fcitx5-remote -c")
+  autocmd BufLeave *    silent lua vim.fn.system("fcitx5-remote -c")
 augroup END
 
 function s:autosave()
