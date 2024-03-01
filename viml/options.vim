@@ -16,7 +16,7 @@ set foldlevel=99
 set laststatus=3
 set list
 set listchars=tab:<-,trail:.
-set mouse=""
+" set mouse=""
 set nofoldenable
 " set nowrap
 set nu
