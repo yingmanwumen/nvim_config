@@ -1,10 +1,14 @@
 return {
   settings = {
     ["rust-analyzer"] = {
-      cachePriming = {
-        enable = false,
+      assist = {
+        emitMustUse = true,
+      },
+      completion = {
+        fullFunctionSignatures = {
+          enable = true,
+        },
       },
     },
   },
 }
-

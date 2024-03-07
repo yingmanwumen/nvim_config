@@ -28,14 +28,12 @@ local lsps = {
 
   lua_ls        = require("config.plugins.lsp.lua_ls"),
   pyright       = require("config.plugins.lsp.pyright"),
-
-  -- rust_analyzer = require("config.plugins.lsp.rust_analyzer"),
+  rust_analyzer = require("config.plugins.lsp.rust_analyzer"),
 
   -- gopls         = require("config.plugins.lsp.go"),
 
   dotls         = {},
   gopls         = {},
-  rust_analyzer = {},
   neocmake      = {},
   jsonls        = {},
   vimls         = {},
