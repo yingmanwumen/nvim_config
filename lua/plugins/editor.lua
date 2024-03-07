@@ -524,4 +524,12 @@ return {
     "folke/neodev.nvim",
     config = true,
   },
+
+  {
+    "jamestthompson3/nvim-remote-containers",
+    cmd = {
+      "AttachToContainer",
+      "StartImage",
+    },
+  }
 }
