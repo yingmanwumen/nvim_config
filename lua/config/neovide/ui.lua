@@ -2,7 +2,7 @@
 -- font settings --
 -------------------
 
-vim.o.guifont = "JetBrainsMono Nerd Font,Noto Color Emoji:h11"
+vim.o.guifont = "JetBrainsMono Nerd Font,PingFang SC,Apple Color Emoji:h11"
 
 vim.opt.linespace = -1
 
@@ -27,10 +27,6 @@ vim.g.neovide_floating_shadow = true
 vim.g.neovide_floating_z_height = 10
 vim.g.neovide_light_angle_degrees = 45
 vim.g.neovide_light_radius = 5
-
--------------------------
--- emoji configuration --
--------------------------
 
 -----------
 -- mouse --

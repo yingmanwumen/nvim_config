@@ -161,7 +161,8 @@ return {
         vt_position = 'end_of_line',
         -- vt_position = 'textwidth',
       })
-    end
+    end,
+    enabled = false,
   },
 
   {
@@ -181,6 +182,9 @@ return {
       })
       local config = require("go.lsp").config()
       local utils = require("config.plugins.lspconfig_utils")
+      if config == nil then
+        return;
+      end
       config.settings.gopls.staticcheck = false
       require('lspconfig').gopls.setup({
         settings = config.settings,
@@ -188,4 +192,17 @@ return {
       })
     end
   },
+
+  {
+    "VidocqH/lsp-lens.nvim",
+    event = 'LspAttach', -- need run before LspAttach if you use nvim 0.9. On 0.10 use 'LspAttach'
+    config = function()
+      require("lsp-lens").setup({
+        include_declaration = true,
+        sections = {
+          definition = true,
+        }
+      })
+    end,
+  }
 }
