@@ -1,5 +1,5 @@
 return {
-  { "navarasu/onedark.nvim" },
+  -- { "navarasu/onedark.nvim" },
   { "nvim-tree/nvim-web-devicons" },
   { "MunifTanjim/nui.nvim" },
   { "maxmx03/solarized.nvim" },
@@ -9,6 +9,7 @@ return {
   { "projekt0n/github-nvim-theme" },
   { "Luxed/ayu-vim" },
   { "NLKNguyen/papercolor-theme" },
+  { "olimorris/onedarkpro.nvim" },
 
   {
     "sainnhe/gruvbox-material",

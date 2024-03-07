@@ -7,11 +7,12 @@ set bg=light
 
 " colorscheme tokyonight
 " colorscheme onedark
+colorscheme onelight
 " colorscheme solarized
 " colorscheme gruvbox-material
 " colorscheme monokai
 " colorscheme dracula
-colorscheme github_light
+" colorscheme github_light
 " colorscheme ayu
 " colorscheme PaperColor
 
