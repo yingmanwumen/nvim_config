@@ -42,4 +42,10 @@ vim.g.neovide_hide_mouse_when_typing = true
 -- cursor --
 ------------
 
-vim.g.neovide_cursor_vfx_mode = "pixiedust"
+vim.g.neovide_cursor_vfx_mode = "railgun"
+
+------------------
+-- transparency --
+------------------
+
+-- vim.g.neovide_transparency = 0.8
