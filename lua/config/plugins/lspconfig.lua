@@ -23,6 +23,7 @@ local lsps = {
     end,
     capabilities = require("config.plugins.lsp.clangd").capabilities,
     settings = require("config.plugins.lsp.clangd").settings,
+    filetypes = require("config.plugins.lsp.clangd").filetypes,
   },
 
   lua_ls        = require("config.plugins.lsp.lua_ls"),
@@ -39,6 +40,7 @@ local lsps = {
   jsonls        = {},
   vimls         = {},
   yamlls        = {},
+  bufls         = {},
   -- lemminx       = {},
 }
 
@@ -66,6 +68,7 @@ for server, options in pairs(lsps) do
       end,
       settings = options.settings,
       capabilities = options.capabilities,
+      filetypes = options.filetypes,
     })
   end
 end

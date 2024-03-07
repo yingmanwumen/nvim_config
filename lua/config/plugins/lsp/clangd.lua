@@ -47,5 +47,8 @@ return {
         "--function-arg-placeholders",
       }
     }
-  }
+  },
+  filetypes = {
+    "c", "cpp", "cuda",
+  },
 }
