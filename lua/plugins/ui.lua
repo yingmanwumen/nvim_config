@@ -10,6 +10,7 @@ return {
   { "Luxed/ayu-vim" },
   { "NLKNguyen/papercolor-theme" },
   { "olimorris/onedarkpro.nvim" },
+  { "sainnhe/everforest" },
 
   {
     "sainnhe/gruvbox-material",
@@ -64,8 +65,10 @@ return {
     "rcarriga/nvim-notify",
     config = function()
       vim.notify = require("notify")
+      ---@diagnostic disable-next-line: missing-fields
       vim.notify.setup({
         render = "minimal",
+        fps = 120,
         top_down = false,
         -- set transparency
         background_colour = "#000000",
@@ -155,10 +158,12 @@ return {
     "stevearc/dressing.nvim",
     dependencies = "nvim-telescope/telescope-ui-select.nvim",
     init = function()
+      ---@diagnostic disable-next-line: duplicate-set-field
       vim.ui.select = function(...)
         require("lazy").load({ plugins = { "dressing.nvim" } })
         return vim.ui.select(...)
       end
+      ---@diagnostic disable-next-line: duplicate-set-field
       vim.ui.input = function(...)
         require("lazy").load({ plugins = { "dressing.nvim" } })
         return vim.ui.input(...)
@@ -176,6 +181,7 @@ return {
       "BufNewFile",
     },
     config = function()
+      ---@diagnostic disable-next-line: missing-fields
       require("nvim-treesitter.configs").setup({
         highlight = {
           enable = true,

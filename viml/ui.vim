@@ -2,12 +2,12 @@
 " let ayucolor="dark"
 let ayucolor="mirage"
 
-set bg=light
-" set bg=dark
+" set bg=light
+set bg=dark
 
 " colorscheme tokyonight
 " colorscheme onedark
-colorscheme onelight
+" colorscheme onelight
 " colorscheme solarized
 " colorscheme gruvbox-material
 " colorscheme monokai
@@ -15,6 +15,8 @@ colorscheme onelight
 " colorscheme github_light
 " colorscheme ayu
 " colorscheme PaperColor
+colorscheme everforest
+" colorscheme nord
 
 function s:set_transparency()
   highlight Normal ctermbg=none guibg=none
@@ -40,6 +42,7 @@ exec 'hi @interface' . s:italic
 exec 'hi @property' . s:italic
 exec 'hi @parameter' . s:italic
 exec 'hi @function.builtin' . s:bold
+exec 'hi @namespace' . s:bold
 
 exec 'hi Constant' . s:bold
 exec 'hi Statement' . s:italic

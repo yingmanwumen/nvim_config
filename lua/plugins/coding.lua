@@ -158,11 +158,13 @@ return {
     event = 'LspAttach', -- need run before LspAttach if you use nvim 0.9. On 0.10 use 'LspAttach'
     config = function()
       require('symbol-usage').setup({
-        vt_position = 'end_of_line',
-        -- vt_position = 'textwidth',
+        vt_position = 'above',
+        references = { enabled = true, include_declaration = true },
+        definition = { enabled = true },
+        implementation = { enabled = true },
       })
     end,
-    enabled = false,
+    enabled = true,
   },
 
   {
@@ -204,5 +206,6 @@ return {
         }
       })
     end,
-  }
+    enabled = false,
+  },
 }
