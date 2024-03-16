@@ -34,10 +34,11 @@ return {
     opts = {
       autocmd = {
         enabled = true,
+        updatetime = -1,
       },
       ignore = {
         clients = {
-          "null-ls",
+          -- "null-ls",
         }
       }
     },

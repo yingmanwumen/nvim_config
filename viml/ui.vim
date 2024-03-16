@@ -2,8 +2,8 @@
 " let ayucolor="dark"
 let ayucolor="mirage"
 
-" set bg=light
-set bg=dark
+set bg=light
+" set bg=dark
 
 " colorscheme tokyonight
 " colorscheme onedark

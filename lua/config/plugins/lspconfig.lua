@@ -29,6 +29,7 @@ local lsps = {
   lua_ls        = require("config.plugins.lsp.lua_ls"),
   pyright       = require("config.plugins.lsp.pyright"),
   rust_analyzer = require("config.plugins.lsp.rust_analyzer"),
+  typst_lsp     = require("config.plugins.lsp.typst"),
 
   -- gopls         = require("config.plugins.lsp.go"),
 

@@ -29,7 +29,7 @@ set tabstop=2
 set termguicolors
 set undodir=$HOME/.config/nvim/.undodir
 set undofile
-set updatetime=100
+set updatetime=500
 
 " let g:loaded_netrw = 1
 " let g:loaded_netrwPlugin = 1
